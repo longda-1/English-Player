@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>阅读上传</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet"/>
+    <link href="../css/basic.css" rel="stylesheet"/>
+    <link href="../css/custom.css" rel="stylesheet"/>
+    <link href="../css/my.css" rel="stylesheet"/>
+    <link href="../css/element/index.css" rel="stylesheet"/>
+
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-cls-top" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">后台管理系统</a>
+        </div>
+        <div class="header-right">
+            <a href="javascript:void (0)" class="btn bg-info" @click="" title="退出登录"><!--logout-->
+                <i class="fa fa-sign-out fa-2x"></i>
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="accountAdInfo.html" class="btn bg-info"  title="跳转到个人中心">
+                <i class="fa fa-user fa-2x"></i>
+            </a>
+        </div>
+        <div class="header-right" style="padding-top: 25px">
+            <!--            <div>{{ ad }}</div>-->
+            欢迎你，{{ad.nickName}}
+        </div>
+    </nav>
+    <nav class="navbar-default navbar-side" >
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main_menu">
+                <li>
+                    <a href="index.html"><i class="fa fa-dashboard"></i> 首页 </a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-yelp"></i> 信息管理 <span class="fa arrow"></span> </a>
+                    <ul class="nav nav-second-level collapse in">
+                        <li><a href="UserInfo.html"><i class="fa fa-table"></i> 用户管理 </a></li>
+                        <li><a href="level.html"><i class="fa fa-table"></i> 英语水平管理 </a></li>
+                        <li><a href="#"><i class="fa fa-yelp"></i> 单词管理 <span class="fa arrow"></span> </a>
+                            <ul class="nav nav-third-level collapse in " style="margin-left: 30px;">
+                                <li><a href="wordBook.html"><i class="fa fa-table"></i> 单词书管理 </a></li>
+                                <li><a href="WordInfo.html"><i class="fa fa-table"></i> 单词表管理 </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-yelp"></i> 阅读管理 <span class="fa arrow"></span> </a>
+                            <ul class="nav nav-second-level collapse in"style="margin-left: 30px;">
+                                <li><a href="read.html"><i class="fa fa-table"></i> 阅读文章管理 </a></li>
+                                <li><a class="active-menu" href="readSub.html"><i class="fa fa-table"></i> 阅读上传 </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-yelp"></i> 听力管理 <span class="fa arrow"></span> </a>
+                            <ul class="nav nav-second-level collapse in"style="margin-left: 30px;">
+                                <li><a href="listen.html"><i class="fa fa-table"></i> 听力材料管理 </a></li>
+                                <li><a href="listenSub.html"><i class="fa fa-table"></i> 听力上传 </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-yelp"></i> 系统管理 <span class="fa arrow"></span> </a>
+                    <ul class="nav nav-second-level collapse in">
+                        <li><a href="accountAdInfo.html"><i class="fa fa-user"></i> 个人中心 </a></li>
+                        <li><a href="updateadPassword.html"><i class="fa fa-unlock-alt"></i> 修改密码 </a></li>
+                    </ul>
+                </li>
+
+                <li><a href="login.html"><i class="fa fa-power-off"></i> 退出登录 </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--右侧-->
+    <div id="page-wrapper">
+        <div id="page-inner" v-cloak>
+            <h2>上传阅读文件</h2>
+            <form @submit.prevent="uploadFile">
+                <div class="form-group">
+                    <label for="title">文章标题</label>
+                    <input type="text" id="title" v-model="title" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="grade">级别</label>
+                    <select class="form-control" id="grade" v-model="level">
+                        <option value="15">无</option>
+                        <option value="1">小学</option>
+                        <option value="2">初中</option>
+                        <option value="3">高中</option>
+                        <option value="4">CET-4</option>
+                        <option value="5">CET-6</option>
+                        <option value="6">考研</option>
+                        <option value="7">托福</option>
+                        <option value="8">BEC</option>
+                        <option value="9">GMAT</option>
+                        <option value="10">GRE</option>
+                        <option value="11">雅思</option>
+                        <option value="12">专四</option>
+                        <option value="13">专八</option>
+                        <option value="14">SAT</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="answers">阅读答案</label>
+                    <textarea id="answers" v-model="answers" class="form-control" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="file">选择文件</label>
+                    <input type="file" id="file" @change="handleFileUpload" accept=".doc,.docx" required>
+                </div>
+                <button type="submit" class="btn btn-primary">上传</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-1.10.2.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.metisMenu.js"></script>
+<script src="../js/custom.js"></script>
+<script src="../js/my.js"></script>
+<script src="../js/vue2.6.11/vue.min.js"></script>
+<script src="../js/vue2.6.11/axios.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script src="../js/element/index.js"></script>
+
+
+<script>
+    function msg(type,msg){ //错误信息
+        Vue.prototype.$message({
+            type: type,     //success（成功）、warning（警告）、error（错误）
+            message: msg,
+            duration: 2000,
+            offset: 100,
+            center: true
+        })
+    }
+    new Vue({
+        el: "#wrapper",
+        data: {
+            ad:{},
+            user:{},
+            objs:[],
+            title: '',
+            level: '',
+            answers: '',
+            file: null
+        },
+        created: function (){
+            // 打印从本地缓存中获取到的用户信息，用于调试
+            // console.log('获取到的用户信息：', localStorage.getItem('ad'));
+            // console.log(localStorage.getItem('ad'));
+
+            this.ad = JSON.parse(localStorage.getItem('ad'));
+            this.user = JSON.parse(localStorage.getItem('user'));
+            this.loadTable(1);  // 初始化加载页面数据
+            // 解析从本地缓存中获取到的用户信息，用于调试
+            // console.log('解析后的用户信息：', this.ad);
+        },
+        methods: {
+            loadTable() {
+                // function logic here
+            },
+            handleFileUpload(event) {
+                this.file = event.target.files[0];
+                console.log("file:",this.file);
+            },
+            async uploadFile() {
+                if (!this.file) {
+                    alert("请选择一个文件");
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append('title', this.title);
+                formData.append('level', this.level);
+                formData.append('answers', this.answers);
+                formData.append('file', this.file);
+
+                try {
+                    const response = await axios.post('/ReadingInfo/upLoadReadingData', formData, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
+                    });
+                    if (response.data.success) {
+                        alert('文件上传成功');
+                    } else {
+                        alert('文件上传成功');
+                    }
+                } catch (error) {
+                    console.error("上传失败", error);
+                    alert('文件上传失败');
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

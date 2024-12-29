@@ -1,0 +1,31 @@
+<!--pages/readList/readList.wxml-->
+<image class="background" src="../../icons/english.png"></image>
+<view class="container_index">
+  <!-- 文章模块 -->
+  <view class="passage">
+    <text class="passage-title">{{readingData.passage.passageTitle}}</text>
+    <text class="passage-title" style="font-size: 20px;">\n{{readingData.levelInfo.grade}}</text>
+    <text class="passage-content">\n{{readingData.passage.passageText}}</text>
+  </view>
+
+<!-- 题目模块 -->
+<view class="questions">
+  <block wx:for="{{readingData.questions}}" wx:key="index">
+    <!-- 题目内容 -->
+    <view class="question-item">
+      <text>\n{{item.readingQuestionId}}. {{item.passageText}}</text>
+    </view>
+   <!-- 选项按钮 -->
+   <view class="choices">
+        <block wx:for="{{readingData.choices}}" wx:key="index2" wx:for-item="choice">
+          <!-- 判断选项是否属于当前题目的范围 -->
+          <block wx:if="{{choice.readingQuestionId === item.readingQuestionId}}">
+            <button class="choice-btn {{selectedAnswers[item.readingQuestionId] === choice.choiceIndex ? 'Selected' : ''}}" bindtap="selectChoice" data-index="{{choice.choiceIndex}}" data-question-id="{{choice.readingQuestionId}}">{{choice.choiceText}}</button>
+          </block>
+        </block>
+      </view>
+    </block>
+  </view>
+  <!-- 提交按钮 -->
+  <button class="submit-btn" bindtap="submitAnswers">提交</button>
+</view>

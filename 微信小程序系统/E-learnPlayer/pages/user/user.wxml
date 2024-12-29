@@ -1,0 +1,29 @@
+<!--pages/user/user.wxml-->
+<image class="background" src="../../icons/english.png"></image>
+<view class="user-page">
+  <!-- 用户头像 -->
+  <image class="avatar" src="{{userData.userInfo.head}}" mode="aspectFill" bindtap="onChooseAvatar"></image>
+  
+  <!-- 用户排名等信息 -->
+  <view class="user-details">
+    <text class="rank">LV: {{userData.userInfo.rank}}\n</text>
+    <text class="gold">💰: {{userData.userInfo.gold}}</text>
+    <text class="jewel"> 💎: {{userData.userInfo.jewel}}</text>
+  </view>
+  
+    <!-- 用户信息列表 -->
+    <view class="info-list">
+      <view class="info-item" bindtap="modifyNickname">📻修改昵称: <text class="info-right">{{userData.userInfo.nickName}}</text></view>
+      <view class="info-item" bindtap="modifyLevel">📜修改水平: <text class="info-right">{{userData.levelInfo.grade}}</text></view>
+    <view class="info-item" bindtap="viewCollection">📕单词本:<text class="info-right">{{wordCollection[0].collectionName}}</text></view>
+    <view class="info-item" bindtap="viewProfile">🤓个人资料<text class="info-right" style="color:orange;">➡</text></view>
+    <view class="info-item" bindtap="manageAccount">⚙账号管理
+    <text class="info-right" style="color:orange;">➡</text>
+    </view>
+
+    <view class="info-item" bindtap="aboutUs">🔗关于我们<text class="info-right" style="color:orange;">➡</text></view>
+  </view>
+  
+  <!-- 退出登录按钮 -->
+  <button class="logout-button" bindtap="logout">退出登录</button>
+</view>

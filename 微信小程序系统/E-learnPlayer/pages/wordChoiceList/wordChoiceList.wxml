@@ -1,0 +1,20 @@
+<!--pages/wordChoiceList/wordChoiceList.wxml-->
+<view class="navbar">
+  <block wx:for="{{ hearts }}" wx:key="index">
+    <text class="heart {{ index < heartsLeft ? 'active' : '' }}">♥</text>
+  </block>
+</view>
+<image class="background" src="../../icons/english.png"></image>
+<view class="container_index">
+  <!-- 显示当前题目内容 -->
+  <view style="font-size: 16px; font-weight: bold;">{{currentQuestion.wordQuestionInfo.wordQuestionText}}</view>
+  <!-- 显示当前题目的选项 -->
+  <view wx:for="{{currentQuestion.wordChoicesInfo}}" wx:key="index">
+  <!-- 显示选项字母 -->
+    <!-- 使用<button>元素显示选项 -->
+    <button class="word-btn {{isRight === index ? 'Right' : ''}} {{isError === index ? 'Error' : ''}}" bindtap="selectAnswer" data-index="{{index}}">{{letters[index]}}. {{item.choiceText}}</button>
+  </view>
+
+  <!-- 右上角倒计时 -->
+  <view class="countdown">{{countdown}}</view>
+</view>

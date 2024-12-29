@@ -1,0 +1,17 @@
+<!--pages/wordChallenge/wordChallenge.wxml-->
+<image class="background" src="../../icons/english.png"></image>
+<view class="container_index">
+  <!-- 两列各十行的按钮 -->
+  <block wx:for="{{wordList}}" wx:key="index" wx:for-item="word" wx:for-index="index">
+    <view class="row">
+      <!-- 左侧按钮 -->
+      <!-- 条件表达式 -->
+      <button class="word-btn {{selectedWordIndex === index ? 'selected' : ''}} {{selectedWordErrorIndex === index ? 'selected_error' : ''}} {{selectedWordRightIndex === index ? 'selected_right' : ''}}" bindtap="selectWord" data-index="{{index}}" disabled="{{selectedWordRightIndex === index || wordList[index].matched}}">{{word.wordsInfo.word}}</button>
+      <!-- 右侧按钮 -->
+      <button class="definition-btn {{selectedDefinitionIndex === index ? 'selected' : ''}} {{selectedDefinitionErrorIndex === index ? 'selected_error' : ''}} {{selectedDefinitionRightIndex === index ? 'selected_right' : ''}}" bindtap="selectDefinition" data-index="{{index}}" disabled="{{selectedDefinitionRightIndex === index || definitionList[index].matched}}">{{definitionList[index].translation}}</button>
+    </view>
+  </block>
+
+  <!-- 右上角倒计时 -->
+  <view class="countdown">{{countdown}}</view>
+</view>

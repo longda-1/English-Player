@@ -1,0 +1,102 @@
+/* pages/start/start.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100rpx; 
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px; /* 调整按钮之间的间距 */
+}
+
+.start-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: orange; /* 橙色按钮 */
+  color: black; /* 黑色文本 */
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid darkorange; /* 深橙色边框 */
+  transition: border-color 0.2s; /* 边框颜色变化动画 */
+}
+
+.start-btn:hover {
+  background-color: darkorange; /* 点击时的橙色 */
+}
+/* 高亮提示 */
+.highlight {
+  color: orange; /* 橙色 */
+}
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-content {
+  background-color: yellow;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.auth-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.auth-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: yellow;
+  color: black;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.auth-btn:hover {
+  background-color: orange;
+}
+
+/* 定义文字跑马灯效果的样式 */
+.announcement {
+  width: 1000rpx;
+  height: 70rpx;
+  display: block;
+  box-sizing: border-box;
+  color: #FF8C00;
+  font-weight: bold;
+  /* 文字水平居中 */
+  text-align: center;
+  /* 实现文字跑马灯效果 */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* 定义文字滚动的动画效果 */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* 应用文字滚动的动画效果 */
+.announcement {
+  animation: marquee 15s linear infinite;
+}
+

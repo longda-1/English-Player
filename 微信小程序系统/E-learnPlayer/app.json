@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/start/start",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/user/user",
+    "pages/word/word",
+    "pages/wordList/wordList",
+    "pages/wordChallenge/wordChallenge",
+    "pages/market/market",
+    "pages/modal/modal",
+    "pages/read/read",
+    "pages/listen/listen",
+    "pages/readList/readList",
+    "pages/listenList/listenList",
+    "pages/currentWord/currentWord",
+    "pages/wordChoice/wordChoice",
+    "pages/wordChoiceList/wordChoiceList"
+  ],
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "English-Players",
+    "navigationBarBackgroundColor": "#FFD700"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

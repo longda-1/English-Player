@@ -1,0 +1,74 @@
+/* pages/readList/readList.wxss */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e9e93c;
+  opacity: 0.4; /* 设置透明度为 50% */
+  z-index: -1; /* 确保背景图片在页面下方 */
+}
+.container_index {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+
+.passage {
+  margin-bottom: 20px;
+}
+.passage-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(30,144,255);
+}
+
+.passage-content {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.questions {
+  margin-bottom: 20px;
+}
+
+.question-item {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.choices {
+  margin-top: 10px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+/* 选项按钮 */
+.choice-btn {
+  width: auto;
+  height: auto;
+  margin: 5px 5px 10px 5px;
+  background-color: yellow;
+  border: 3px solid orange;
+  border-radius: 50rpx;
+  font-size: 14px; /* 修改按钮文字大小 */
+}
+
+/* 选中按钮 */
+.Selected{
+  background-color: orange; /* 选中按钮改变成橙色 */
+}

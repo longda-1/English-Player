@@ -1,0 +1,47 @@
+<!--pages/market/market.wxml-->
+<image class="background" src="../../icons/english.png"></image>
+<view class="container_index">
+<!-- 用户信息 -->
+<view class="user-info" bindtap="navigateToUser">
+    <image class="avatar" src="{{userData.userInfo.head}}" mode="aspectFill"></image>
+    <view class="user-details">
+      <text class="nickname" style="font-size: 22px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)" bindtap="navigateToUser">{{userData.userInfo.nickName}}</text>
+      <text class="level">\n水平：{{userData.levelInfo.grade}}</text>
+      <text class="rank">\nLV : {{userData.userInfo.rank}}</text>
+    </view>
+    <view class="currency">
+      <text class="gold">💰: {{userData.userInfo.gold}}</text>
+      <text class="jewel">💎: {{userData.userInfo.jewel}}</text>
+    </view>
+  </view>
+  <!-- 黄色分割线 -->
+  <view class="divider"></view>
+  <!-- 导航栏 -->
+  <view class="navbar">
+    <text class="nav-item" bindtap="switchToMarket">🏪集市</text>
+    <text class="nav-item" bindtap="switchToDraw">🎁抽卡</text>
+  </view>
+  <!-- 黄色分割线 -->
+  <view class="divider"></view>
+  <!-- 兑换集市 -->
+  <view wx:if="{{currentPage === 'market'}}">
+    <!-- 兑换内容 -->
+    <view class="exchange">
+      <text>兑换💰：</text>
+      <text>💎 = 10 💰</text> 
+      <button bindtap="exchangeDiamond">兑换</button>
+    </view>
+  </view>
+
+  <!-- 抽卡 -->
+  <view wx:if="{{currentPage === 'draw'}}">
+    <!-- 抽卡内容 -->
+    <view class="draw">
+      <text>抽卡内容</text>
+      <text>N(0.8) R(0.1) SR(0.09) SSR(0.01)</text>
+      <!-- 添加抽卡按钮 -->
+      <button bindtap="drawOneTime" class="draw-button">抽一次</button>
+      <button bindtap="drawTenTimes" class="draw-button">抽十次</button>
+    </view>
+  </view>
+</view>

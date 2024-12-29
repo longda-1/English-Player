@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆页面</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet"/>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2); /* 半透明的白色覆盖层 */
+            z-index: -1; /* 确保覆盖层在背景图片上，但在其他内容后面 */
+        }
+    </style>
+</head>
+<body style="background-image: url('../../end/img/english.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #E2E2E2;">
+<div id="app" class="container">
+    <div class="row text-center" style="padding: 100px">
+        <div class="col-md-12">
+            <h2>欢迎登陆后台系统</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+            <div class="panel-body">
+                <form role="form">
+                    <hr/>
+                    <br/>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-tag"></i>
+                        </span>
+                        <input type="text" class="form-control" v-model="ad.adName" placeholder="用户名"/>
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                        <input type="password" class="form-control" v-model= "ad.adPassword" placeholder="密码"/>
+                    </div>
+                    <div class="form-group">
+                        <span class="pull-left"><a href="javascript:void(0)" @click="register">注册</a></span>
+                       <label class="checkbox-inline"></label>
+                        <span class="pull-right"><a href="javascript:void (0)" @click="reset">忘记密码</a> </span>
+                    </div>
+                    <div style="text-align: center">
+                        <a href="javascript:void(0)" @click="login" class="btn btn-primary">登录</a>
+                    </div>
+                    <hr/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/vue2.6.11/vue.min.js"></script>
+<script src="../js/vue2.6.11/axios.js"></script>
+<script>
+    new Vue({
+       el: "#app",
+       data: {
+           ad: {
+               adName: "",
+               adPassword: ""
+           }
+       },
+        created: function (){
+
+        },
+        methods: {
+            login(){
+                if(!this.ad.adName){
+                    alert("请输入用户名");
+                    return;
+                }
+                if (!this.ad.adPassword){
+                    alert("请输入密码");
+                    return;
+                }
+                axios.post('/login',this.ad,{
+                    headers:{
+                        'Content-Type': 'application/json; charset=UTF-8'
+                    }
+                }).then(res => {
+                    //测试输出返回的数据
+                    // console.log("Response data:", res.data);
+
+                    if (res.data.code === '0'){
+                        //测试
+                        // console.log("Received user data:", res.data.data); // 输出用户数据
+
+                        localStorage.setItem('ad',JSON.stringify(res.data.data));<!--放入缓存-->
+
+                        // console.log('Stored data:', localStorage.getItem('ad'));// 输出存储在localStorage中的数据
+
+                        location.href = '/end/page/index.html';
+                    }else{
+                        alert(res.data.msg);
+                    }
+                })
+            },
+            reset(){
+                if(!this.ad.adName){
+                    alert("请输入用户名");
+                    return;
+                }
+                axios.post('/resetPassword',this.ad).then(res => {
+                    if (res.data.code === '0'){
+                        alert("密码重置成功，密码是已重置为“123456”");
+                    }else{
+                        alert(res.data.msg);
+                    }
+                })
+            },
+            register(){
+                // 注册逻辑
+                location.href = '/end/page/register.html'; // 跳转到注册页面
+            },
+
+        }
+    });
+</script>
+
+</body>
+</html>

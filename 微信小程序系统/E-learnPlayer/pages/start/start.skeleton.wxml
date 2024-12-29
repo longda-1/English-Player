@@ -1,0 +1,32 @@
+<!--
+此文件为开发者工具生成，生成时间: 2024/4/14上午11:31:25
+使用方法：
+在 D:\wechat-WebTool\源码\E-learnPlayer\pages\start\start.wxml 引入模板
+
+```
+<import src="start.skeleton.wxml"/>
+<template is="skeleton" wx:if="{{loading}}" />
+```
+
+在 D:\wechat-WebTool\源码\E-learnPlayer\pages\start\start.wxss 中引入样式
+```
+@import "./start.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="container">
+      <view class="sk-transparent sk-text-14-2857-98 sk-text">公告（居中，文字滚动，加一个小喇叭</view>
+      <view>
+        <image mode="aspectFit" class="sk-image"></image>
+      </view>
+      <view class="button-group">
+        <button class="start-btn sk-transparent sk-button sk-pseudo sk-pseudo-circle">开始旅途</button>
+        <button class="start-btn sk-transparent sk-button sk-pseudo sk-pseudo-circle">兑换集市</button>
+        <button class="start-btn sk-transparent sk-button sk-pseudo sk-pseudo-circle">使用说明</button>
+      </view>
+    </view>
+  </view>
+</template>

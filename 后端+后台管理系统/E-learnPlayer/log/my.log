@@ -1,0 +1,998 @@
+2024-06-13 00:26:08.306  INFO 20376 --- [main] c.eLearnPlayer.eLearnPlayerApplication   : Starting eLearnPlayerApplication using Java 17.0.10 on 龙大 with PID 20376 (D:\idea\xiangmu\E-learnPlayer\target\classes started by 28470 in D:\idea\xiangmu\E-learnPlayer)
+2024-06-13 00:26:08.313  INFO 20376 --- [main] c.eLearnPlayer.eLearnPlayerApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-06-13 00:26:10.137  INFO 20376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-06-13 00:26:10.139  INFO 20376 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.6] using APR version [1.7.4].
+2024-06-13 00:26:10.140  INFO 20376 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2024-06-13 00:26:10.141  INFO 20376 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2024-06-13 00:26:10.148  INFO 20376 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+2024-06-13 00:26:10.159  INFO 20376 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-13 00:26:10.159  INFO 20376 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
+2024-06-13 00:26:10.337  INFO 20376 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-13 00:26:10.337  INFO 20376 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1922 ms
+2024-06-13 00:26:10.612  INFO 20376 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2024-06-13 00:26:10.874  INFO 20376 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2024-06-13 00:26:12.580  INFO 20376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-06-13 00:26:12.597  INFO 20376 --- [main] c.eLearnPlayer.eLearnPlayerApplication   : Started eLearnPlayerApplication in 5.042 seconds (JVM running for 6.47)
+2024-06-13 01:00:40.002  INFO 20376 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-13 01:00:40.008  INFO 20376 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-13 01:00:40.049  INFO 20376 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 40 ms
+2024-06-13 01:00:40.567 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.U.findUserDataByPhone              : ==>  Preparing: SELECT u.User_id AS "userInfo.userId", u.User_name AS "userInfo.userName", u.User_password AS "userInfo.userPassword", u.Nick_name AS "userInfo.nickName", u.Sex AS "userInfo.sex", u.phone AS "userInfo.phone", u.head AS "userInfo.head", u.gold AS "userInfo.gold", u.jewel AS "userInfo.jewel", u.level AS "userInfo.level", u.rank AS "userInfo.rank", u.Medal_id AS "userInfo.medalId", l.level AS "levelInfo.level", l.grade AS "levelInfo.grade", m.Medal_id AS "medalInfo.medalId", m.Medal_name AS "medalInfo.medalName" FROM User_info u LEFT JOIN Level_info l ON u.Level = l.Level LEFT JOIN Medal_info m ON u.Medal_id = m.Medal_id WHERE u.phone = ?
+2024-06-13 01:00:40.627 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.U.findUserDataByPhone              : ==> Parameters: 13174436885(String)
+2024-06-13 01:00:40.800 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.U.findUserDataByPhone              : <==      Total: 1
+2024-06-13 01:00:41.395 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:00:41.397 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 211(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:00:41.422 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:00:41.430 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:00:41.429 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:00:41.432 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:00:41.444 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:00:41.459 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 211(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:00:41.465 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:00:41.485 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:00:41.485 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:00:41.490 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:02:16.084  WARN 20376 --- [http-nio-8080-exec-9] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/englishappletdb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8, version : 1.2.4, lastPacketReceivedIdleMillis : 94542
+2024-06-13 01:02:16.085  WARN 20376 --- [http-nio-8080-exec-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/englishappletdb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8, version : 1.2.4, lastPacketReceivedIdleMillis : 94606
+2024-06-13 01:02:16.112 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:02:16.116 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 211(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:02:16.119 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:02:16.123 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:02:16.124 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:02:16.123 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:02:16.131 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:02:16.134 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 211(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:02:16.139 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:02:16.151 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:02:16.151 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:02:16.158 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:02:30.400 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.W.findAllByUserId                  : ==>  Preparing: SELECT * FROM word_collections_info WHERE user_id = ?
+2024-06-13 01:02:30.400 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.W.findAllByUserId                  : ==> Parameters: 1(Integer)
+2024-06-13 01:02:30.411 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.W.findAllByUserId                  : <==      Total: 2
+2024-06-13 01:02:34.497 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:02:34.499 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 211(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:02:34.499 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:02:34.500 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:02:34.501 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:02:34.504 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:02:44.647 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:02:44.650 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 211(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:02:44.651 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:02:44.653 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 211(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:02:44.653 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:02:44.656 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:02:44.662 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:02:44.663 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:02:44.667 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:02:44.674 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:02:44.676 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:02:44.680 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:14:51.247  WARN 20376 --- [http-nio-8080-exec-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/englishappletdb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8, version : 1.2.4, lastPacketReceivedIdleMillis : 726569
+2024-06-13 01:14:51.249  WARN 20376 --- [http-nio-8080-exec-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/englishappletdb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8, version : 1.2.4, lastPacketReceivedIdleMillis : 726596
+2024-06-13 01:14:51.251  WARN 20376 --- [http-nio-8080-exec-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/englishappletdb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8, version : 1.2.4, lastPacketReceivedIdleMillis : 755123
+2024-06-13 01:14:51.263 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:14:51.265 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 211(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:14:51.271 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:14:51.272 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:14:51.273 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:14:51.276 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:14:51.278 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:14:51.280 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 211(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:14:51.283 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:14:51.291 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:14:51.291 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:14:51.298 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:15:02.018 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.W.findAllByUserId                  : ==>  Preparing: SELECT * FROM word_collections_info WHERE user_id = ?
+2024-06-13 01:15:02.019 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.W.findAllByUserId                  : ==> Parameters: 1(Integer)
+2024-06-13 01:15:02.022 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.W.findAllByUserId                  : <==      Total: 2
+2024-06-13 01:15:05.072 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:15:05.073 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 211(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:15:05.076 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:15:05.078 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:15:05.078 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:15:05.083 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:15:14.017 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:15:14.019 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 211(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:15:14.023 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:15:14.114 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:15:14.115 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:15:14.118 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:15:14.118 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:15:14.120 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 211(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:15:14.122 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:15:14.129 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:15:14.129 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:15:14.134 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:16:09.004 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:16:09.004 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 211(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:16:09.008 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:16:09.019 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:16:09.021 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 211(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:16:09.023 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:16:26.772 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByLevel    : ==>  Preparing: select * from word_books_info where Level = ?
+2024-06-13 01:16:26.773 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByLevel    : ==> Parameters: 4(Integer)
+2024-06-13 01:16:26.783 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByLevel    : <==      Total: 5
+2024-06-13 01:16:26.785 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findBookSizeByBookId             : ==>  Preparing: select MAX(Word_rank) from words_info where Book_id = ?
+2024-06-13 01:16:26.786 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findBookSizeByBookId             : ==> Parameters: 14(Integer)
+2024-06-13 01:16:26.809 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findBookSizeByBookId             : <==      Total: 1
+2024-06-13 01:16:26.812 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==>  Preparing: SELECT * FROM words_info WHERE Book_id = ? AND Word_rank = ?
+2024-06-13 01:16:26.813 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==> Parameters: 14(Integer), 161(Integer)
+2024-06-13 01:16:26.819 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : <==      Total: 1
+2024-06-13 01:16:26.820 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==>  Preparing: select * from word_books_info where Book_id = ?
+2024-06-13 01:16:26.820 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==> Parameters: 14(Integer)
+2024-06-13 01:16:26.823 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : <==      Total: 1
+2024-06-13 01:16:26.824 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==>  Preparing: SELECT * FROM sentence_info WHERE Word_id = ?
+2024-06-13 01:16:26.825 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==> Parameters: 9032(Integer)
+2024-06-13 01:16:26.831 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : <==      Total: 1
+2024-06-13 01:16:26.832 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==>  Preparing: SELECT * FROM word_synonyms_info WHERE Word_id = ?
+2024-06-13 01:16:26.832 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==> Parameters: 9032(Integer)
+2024-06-13 01:16:26.836 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : <==      Total: 0
+2024-06-13 01:16:26.837 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==>  Preparing: SELECT * FROM word_phrases_info WHERE Word_id = ?
+2024-06-13 01:16:26.840 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==> Parameters: 9032(Integer)
+2024-06-13 01:16:26.845 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : <==      Total: 0
+2024-06-13 01:16:26.845 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==>  Preparing: SELECT * FROM words_root_info WHERE Word_id = ?
+2024-06-13 01:16:26.846 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==> Parameters: 9032(Integer)
+2024-06-13 01:16:26.851 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : <==      Total: 0
+2024-06-13 01:16:26.853 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==>  Preparing: select * from level_info where Level = ?
+2024-06-13 01:16:26.853 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==> Parameters: 4(Integer)
+2024-06-13 01:16:26.854 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : <==      Total: 1
+2024-06-13 01:16:26.855 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==>  Preparing: SELECT * FROM words_info WHERE Book_id = ? AND Word_rank = ?
+2024-06-13 01:16:26.857 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==> Parameters: 14(Integer), 162(Integer)
+2024-06-13 01:16:26.862 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : <==      Total: 1
+2024-06-13 01:16:26.862 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==>  Preparing: select * from word_books_info where Book_id = ?
+2024-06-13 01:16:26.862 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==> Parameters: 14(Integer)
+2024-06-13 01:16:26.863 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : <==      Total: 1
+2024-06-13 01:16:26.864 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==>  Preparing: SELECT * FROM sentence_info WHERE Word_id = ?
+2024-06-13 01:16:26.864 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==> Parameters: 9033(Integer)
+2024-06-13 01:16:26.865 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : <==      Total: 3
+2024-06-13 01:16:26.866 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==>  Preparing: SELECT * FROM word_synonyms_info WHERE Word_id = ?
+2024-06-13 01:16:26.866 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==> Parameters: 9033(Integer)
+2024-06-13 01:16:26.870 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : <==      Total: 6
+2024-06-13 01:16:26.870 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==>  Preparing: SELECT * FROM word_phrases_info WHERE Word_id = ?
+2024-06-13 01:16:26.872 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==> Parameters: 9033(Integer)
+2024-06-13 01:16:26.874 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : <==      Total: 3
+2024-06-13 01:16:26.875 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==>  Preparing: SELECT * FROM words_root_info WHERE Word_id = ?
+2024-06-13 01:16:26.875 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==> Parameters: 9033(Integer)
+2024-06-13 01:16:26.878 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : <==      Total: 3
+2024-06-13 01:16:26.878 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==>  Preparing: select * from level_info where Level = ?
+2024-06-13 01:16:26.879 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==> Parameters: 4(Integer)
+2024-06-13 01:16:26.879 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : <==      Total: 1
+2024-06-13 01:16:26.880 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==>  Preparing: SELECT * FROM words_info WHERE Book_id = ? AND Word_rank = ?
+2024-06-13 01:16:26.880 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==> Parameters: 14(Integer), 163(Integer)
+2024-06-13 01:16:26.882 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : <==      Total: 1
+2024-06-13 01:16:26.883 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==>  Preparing: select * from word_books_info where Book_id = ?
+2024-06-13 01:16:26.884 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==> Parameters: 14(Integer)
+2024-06-13 01:16:26.886 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : <==      Total: 1
+2024-06-13 01:16:26.887 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==>  Preparing: SELECT * FROM sentence_info WHERE Word_id = ?
+2024-06-13 01:16:26.889 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==> Parameters: 9034(Integer)
+2024-06-13 01:16:26.891 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : <==      Total: 2
+2024-06-13 01:16:26.892 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==>  Preparing: SELECT * FROM word_synonyms_info WHERE Word_id = ?
+2024-06-13 01:16:26.892 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==> Parameters: 9034(Integer)
+2024-06-13 01:16:26.894 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : <==      Total: 3
+2024-06-13 01:16:26.895 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==>  Preparing: SELECT * FROM word_phrases_info WHERE Word_id = ?
+2024-06-13 01:16:26.895 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==> Parameters: 9034(Integer)
+2024-06-13 01:16:26.897 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : <==      Total: 0
+2024-06-13 01:16:26.897 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==>  Preparing: SELECT * FROM words_root_info WHERE Word_id = ?
+2024-06-13 01:16:26.898 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==> Parameters: 9034(Integer)
+2024-06-13 01:16:26.899 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : <==      Total: 2
+2024-06-13 01:16:26.900 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==>  Preparing: select * from level_info where Level = ?
+2024-06-13 01:16:26.901 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==> Parameters: 4(Integer)
+2024-06-13 01:16:26.902 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : <==      Total: 1
+2024-06-13 01:16:26.904 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==>  Preparing: SELECT * FROM words_info WHERE Book_id = ? AND Word_rank = ?
+2024-06-13 01:16:26.904 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==> Parameters: 14(Integer), 164(Integer)
+2024-06-13 01:16:26.908 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : <==      Total: 1
+2024-06-13 01:16:26.910 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==>  Preparing: select * from word_books_info where Book_id = ?
+2024-06-13 01:16:26.910 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==> Parameters: 14(Integer)
+2024-06-13 01:16:26.911 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : <==      Total: 1
+2024-06-13 01:16:26.911 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==>  Preparing: SELECT * FROM sentence_info WHERE Word_id = ?
+2024-06-13 01:16:26.911 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==> Parameters: 9035(Integer)
+2024-06-13 01:16:26.913 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : <==      Total: 1
+2024-06-13 01:16:26.914 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==>  Preparing: SELECT * FROM word_synonyms_info WHERE Word_id = ?
+2024-06-13 01:16:26.914 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==> Parameters: 9035(Integer)
+2024-06-13 01:16:26.915 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : <==      Total: 0
+2024-06-13 01:16:26.916 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==>  Preparing: SELECT * FROM word_phrases_info WHERE Word_id = ?
+2024-06-13 01:16:26.918 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==> Parameters: 9035(Integer)
+2024-06-13 01:16:26.920 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : <==      Total: 1
+2024-06-13 01:16:26.922 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==>  Preparing: SELECT * FROM words_root_info WHERE Word_id = ?
+2024-06-13 01:16:26.924 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==> Parameters: 9035(Integer)
+2024-06-13 01:16:26.925 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : <==      Total: 0
+2024-06-13 01:16:26.926 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==>  Preparing: select * from level_info where Level = ?
+2024-06-13 01:16:26.927 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==> Parameters: 4(Integer)
+2024-06-13 01:16:26.928 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : <==      Total: 1
+2024-06-13 01:16:26.929 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==>  Preparing: SELECT * FROM words_info WHERE Book_id = ? AND Word_rank = ?
+2024-06-13 01:16:26.930 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==> Parameters: 14(Integer), 165(Integer)
+2024-06-13 01:16:26.935 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : <==      Total: 1
+2024-06-13 01:16:26.935 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==>  Preparing: select * from word_books_info where Book_id = ?
+2024-06-13 01:16:26.936 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==> Parameters: 14(Integer)
+2024-06-13 01:16:26.937 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : <==      Total: 1
+2024-06-13 01:16:26.942 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==>  Preparing: SELECT * FROM sentence_info WHERE Word_id = ?
+2024-06-13 01:16:26.942 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==> Parameters: 9036(Integer)
+2024-06-13 01:16:26.945 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : <==      Total: 2
+2024-06-13 01:16:26.945 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==>  Preparing: SELECT * FROM word_synonyms_info WHERE Word_id = ?
+2024-06-13 01:16:26.946 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==> Parameters: 9036(Integer)
+2024-06-13 01:16:26.948 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : <==      Total: 4
+2024-06-13 01:16:26.951 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==>  Preparing: SELECT * FROM word_phrases_info WHERE Word_id = ?
+2024-06-13 01:16:26.951 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==> Parameters: 9036(Integer)
+2024-06-13 01:16:26.955 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : <==      Total: 2
+2024-06-13 01:16:26.956 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==>  Preparing: SELECT * FROM words_root_info WHERE Word_id = ?
+2024-06-13 01:16:26.956 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==> Parameters: 9036(Integer)
+2024-06-13 01:16:26.959 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : <==      Total: 3
+2024-06-13 01:16:26.961 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==>  Preparing: select * from level_info where Level = ?
+2024-06-13 01:16:26.961 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==> Parameters: 4(Integer)
+2024-06-13 01:16:26.963 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : <==      Total: 1
+2024-06-13 01:16:26.964 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==>  Preparing: SELECT * FROM words_info WHERE Book_id = ? AND Word_rank = ?
+2024-06-13 01:16:26.965 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==> Parameters: 14(Integer), 166(Integer)
+2024-06-13 01:16:26.971 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : <==      Total: 1
+2024-06-13 01:16:26.972 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==>  Preparing: select * from word_books_info where Book_id = ?
+2024-06-13 01:16:26.972 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==> Parameters: 14(Integer)
+2024-06-13 01:16:26.975 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : <==      Total: 1
+2024-06-13 01:16:26.976 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==>  Preparing: SELECT * FROM sentence_info WHERE Word_id = ?
+2024-06-13 01:16:26.976 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==> Parameters: 9037(Integer)
+2024-06-13 01:16:26.979 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : <==      Total: 1
+2024-06-13 01:16:26.979 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==>  Preparing: SELECT * FROM word_synonyms_info WHERE Word_id = ?
+2024-06-13 01:16:26.980 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==> Parameters: 9037(Integer)
+2024-06-13 01:16:26.989 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : <==      Total: 4
+2024-06-13 01:16:26.991 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==>  Preparing: SELECT * FROM word_phrases_info WHERE Word_id = ?
+2024-06-13 01:16:26.992 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==> Parameters: 9037(Integer)
+2024-06-13 01:16:26.995 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : <==      Total: 4
+2024-06-13 01:16:26.996 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==>  Preparing: SELECT * FROM words_root_info WHERE Word_id = ?
+2024-06-13 01:16:26.996 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==> Parameters: 9037(Integer)
+2024-06-13 01:16:26.998 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : <==      Total: 1
+2024-06-13 01:16:26.999 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==>  Preparing: select * from level_info where Level = ?
+2024-06-13 01:16:27.000 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==> Parameters: 4(Integer)
+2024-06-13 01:16:27.001 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : <==      Total: 1
+2024-06-13 01:16:27.001 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==>  Preparing: SELECT * FROM words_info WHERE Book_id = ? AND Word_rank = ?
+2024-06-13 01:16:27.002 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==> Parameters: 14(Integer), 167(Integer)
+2024-06-13 01:16:27.007 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : <==      Total: 1
+2024-06-13 01:16:27.007 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==>  Preparing: select * from word_books_info where Book_id = ?
+2024-06-13 01:16:27.008 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==> Parameters: 14(Integer)
+2024-06-13 01:16:27.010 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : <==      Total: 1
+2024-06-13 01:16:27.011 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==>  Preparing: SELECT * FROM sentence_info WHERE Word_id = ?
+2024-06-13 01:16:27.012 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==> Parameters: 9038(Integer)
+2024-06-13 01:16:27.013 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : <==      Total: 1
+2024-06-13 01:16:27.014 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==>  Preparing: SELECT * FROM word_synonyms_info WHERE Word_id = ?
+2024-06-13 01:16:27.015 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==> Parameters: 9038(Integer)
+2024-06-13 01:16:27.016 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : <==      Total: 6
+2024-06-13 01:16:27.017 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==>  Preparing: SELECT * FROM word_phrases_info WHERE Word_id = ?
+2024-06-13 01:16:27.022 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==> Parameters: 9038(Integer)
+2024-06-13 01:16:27.032 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : <==      Total: 15
+2024-06-13 01:16:27.033 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==>  Preparing: SELECT * FROM words_root_info WHERE Word_id = ?
+2024-06-13 01:16:27.034 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==> Parameters: 9038(Integer)
+2024-06-13 01:16:27.051 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : <==      Total: 12
+2024-06-13 01:16:27.055 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==>  Preparing: select * from level_info where Level = ?
+2024-06-13 01:16:27.056 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==> Parameters: 4(Integer)
+2024-06-13 01:16:27.057 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : <==      Total: 1
+2024-06-13 01:16:27.060 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==>  Preparing: SELECT * FROM words_info WHERE Book_id = ? AND Word_rank = ?
+2024-06-13 01:16:27.062 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==> Parameters: 14(Integer), 168(Integer)
+2024-06-13 01:16:27.068 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : <==      Total: 1
+2024-06-13 01:16:27.069 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==>  Preparing: select * from word_books_info where Book_id = ?
+2024-06-13 01:16:27.070 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==> Parameters: 14(Integer)
+2024-06-13 01:16:27.071 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : <==      Total: 1
+2024-06-13 01:16:27.072 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==>  Preparing: SELECT * FROM sentence_info WHERE Word_id = ?
+2024-06-13 01:16:27.072 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==> Parameters: 9039(Integer)
+2024-06-13 01:16:27.073 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : <==      Total: 1
+2024-06-13 01:16:27.074 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==>  Preparing: SELECT * FROM word_synonyms_info WHERE Word_id = ?
+2024-06-13 01:16:27.075 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==> Parameters: 9039(Integer)
+2024-06-13 01:16:27.076 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : <==      Total: 2
+2024-06-13 01:16:27.077 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==>  Preparing: SELECT * FROM word_phrases_info WHERE Word_id = ?
+2024-06-13 01:16:27.077 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==> Parameters: 9039(Integer)
+2024-06-13 01:16:27.078 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : <==      Total: 0
+2024-06-13 01:16:27.079 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==>  Preparing: SELECT * FROM words_root_info WHERE Word_id = ?
+2024-06-13 01:16:27.080 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==> Parameters: 9039(Integer)
+2024-06-13 01:16:27.081 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : <==      Total: 4
+2024-06-13 01:16:27.084 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==>  Preparing: select * from level_info where Level = ?
+2024-06-13 01:16:27.085 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==> Parameters: 4(Integer)
+2024-06-13 01:16:27.086 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : <==      Total: 1
+2024-06-13 01:16:27.087 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==>  Preparing: SELECT * FROM words_info WHERE Book_id = ? AND Word_rank = ?
+2024-06-13 01:16:27.088 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==> Parameters: 14(Integer), 169(Integer)
+2024-06-13 01:16:27.094 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : <==      Total: 1
+2024-06-13 01:16:27.094 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==>  Preparing: select * from word_books_info where Book_id = ?
+2024-06-13 01:16:27.095 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==> Parameters: 14(Integer)
+2024-06-13 01:16:27.097 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : <==      Total: 1
+2024-06-13 01:16:27.098 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==>  Preparing: SELECT * FROM sentence_info WHERE Word_id = ?
+2024-06-13 01:16:27.098 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==> Parameters: 9040(Integer)
+2024-06-13 01:16:27.099 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : <==      Total: 0
+2024-06-13 01:16:27.101 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==>  Preparing: SELECT * FROM word_synonyms_info WHERE Word_id = ?
+2024-06-13 01:16:27.101 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==> Parameters: 9040(Integer)
+2024-06-13 01:16:27.114 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : <==      Total: 5
+2024-06-13 01:16:27.115 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==>  Preparing: SELECT * FROM word_phrases_info WHERE Word_id = ?
+2024-06-13 01:16:27.116 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==> Parameters: 9040(Integer)
+2024-06-13 01:16:27.118 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : <==      Total: 4
+2024-06-13 01:16:27.118 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==>  Preparing: SELECT * FROM words_root_info WHERE Word_id = ?
+2024-06-13 01:16:27.119 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==> Parameters: 9040(Integer)
+2024-06-13 01:16:27.121 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : <==      Total: 7
+2024-06-13 01:16:27.122 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==>  Preparing: select * from level_info where Level = ?
+2024-06-13 01:16:27.122 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==> Parameters: 4(Integer)
+2024-06-13 01:16:27.123 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : <==      Total: 1
+2024-06-13 01:16:27.124 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==>  Preparing: SELECT * FROM words_info WHERE Book_id = ? AND Word_rank = ?
+2024-06-13 01:16:27.125 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==> Parameters: 14(Integer), 170(Integer)
+2024-06-13 01:16:27.131 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : <==      Total: 1
+2024-06-13 01:16:27.132 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==>  Preparing: select * from word_books_info where Book_id = ?
+2024-06-13 01:16:27.134 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==> Parameters: 14(Integer)
+2024-06-13 01:16:27.136 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : <==      Total: 1
+2024-06-13 01:16:27.138 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==>  Preparing: SELECT * FROM sentence_info WHERE Word_id = ?
+2024-06-13 01:16:27.139 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==> Parameters: 9041(Integer)
+2024-06-13 01:16:27.141 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : <==      Total: 2
+2024-06-13 01:16:27.142 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==>  Preparing: SELECT * FROM word_synonyms_info WHERE Word_id = ?
+2024-06-13 01:16:27.142 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==> Parameters: 9041(Integer)
+2024-06-13 01:16:27.144 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : <==      Total: 4
+2024-06-13 01:16:27.145 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==>  Preparing: SELECT * FROM word_phrases_info WHERE Word_id = ?
+2024-06-13 01:16:27.145 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==> Parameters: 9041(Integer)
+2024-06-13 01:16:27.149 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : <==      Total: 20
+2024-06-13 01:16:27.150 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==>  Preparing: SELECT * FROM words_root_info WHERE Word_id = ?
+2024-06-13 01:16:27.151 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==> Parameters: 9041(Integer)
+2024-06-13 01:16:27.153 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : <==      Total: 10
+2024-06-13 01:16:27.154 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==>  Preparing: select * from level_info where Level = ?
+2024-06-13 01:16:27.155 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==> Parameters: 4(Integer)
+2024-06-13 01:16:27.157 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : <==      Total: 1
+2024-06-13 01:16:27.158 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findBookSizeByBookId             : ==>  Preparing: select MAX(Word_rank) from words_info where Book_id = ?
+2024-06-13 01:16:27.158 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findBookSizeByBookId             : ==> Parameters: 15(Integer)
+2024-06-13 01:16:27.210 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findBookSizeByBookId             : <==      Total: 1
+2024-06-13 01:16:27.211 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==>  Preparing: SELECT * FROM words_info WHERE Book_id = ? AND Word_rank = ?
+2024-06-13 01:16:27.213 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==> Parameters: 15(Integer), 171(Integer)
+2024-06-13 01:16:27.229 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : <==      Total: 1
+2024-06-13 01:16:27.230 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==>  Preparing: select * from word_books_info where Book_id = ?
+2024-06-13 01:16:27.231 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==> Parameters: 15(Integer)
+2024-06-13 01:16:27.241 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : <==      Total: 1
+2024-06-13 01:16:27.242 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==>  Preparing: SELECT * FROM sentence_info WHERE Word_id = ?
+2024-06-13 01:16:27.242 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==> Parameters: 10204(Integer)
+2024-06-13 01:16:27.252 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : <==      Total: 2
+2024-06-13 01:16:27.252 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==>  Preparing: SELECT * FROM word_synonyms_info WHERE Word_id = ?
+2024-06-13 01:16:27.253 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==> Parameters: 10204(Integer)
+2024-06-13 01:16:27.257 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : <==      Total: 3
+2024-06-13 01:16:27.257 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==>  Preparing: SELECT * FROM word_phrases_info WHERE Word_id = ?
+2024-06-13 01:16:27.258 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==> Parameters: 10204(Integer)
+2024-06-13 01:16:27.261 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : <==      Total: 20
+2024-06-13 01:16:27.263 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==>  Preparing: SELECT * FROM words_root_info WHERE Word_id = ?
+2024-06-13 01:16:27.263 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==> Parameters: 10204(Integer)
+2024-06-13 01:16:27.267 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : <==      Total: 11
+2024-06-13 01:16:27.268 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==>  Preparing: select * from level_info where Level = ?
+2024-06-13 01:16:27.268 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==> Parameters: 4(Integer)
+2024-06-13 01:16:27.269 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : <==      Total: 1
+2024-06-13 01:16:27.270 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==>  Preparing: SELECT * FROM words_info WHERE Book_id = ? AND Word_rank = ?
+2024-06-13 01:16:27.271 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : ==> Parameters: 15(Integer), 172(Integer)
+2024-06-13 01:16:27.283 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findWordByBookIdAndWordRank      : <==      Total: 1
+2024-06-13 01:16:27.284 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==>  Preparing: select * from word_books_info where Book_id = ?
+2024-06-13 01:16:27.285 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : ==> Parameters: 15(Integer)
+2024-06-13 01:16:27.286 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordBooksInfoMapper.findByBookId   : <==      Total: 1
+2024-06-13 01:16:27.286 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==>  Preparing: SELECT * FROM sentence_info WHERE Word_id = ?
+2024-06-13 01:16:27.287 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : ==> Parameters: 10205(Integer)
+2024-06-13 01:16:27.289 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSentenceByWordId             : <==      Total: 1
+2024-06-13 01:16:27.290 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==>  Preparing: SELECT * FROM word_synonyms_info WHERE Word_id = ?
+2024-06-13 01:16:27.291 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : ==> Parameters: 10205(Integer)
+2024-06-13 01:16:27.293 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findSynonymsByWordId             : <==      Total: 2
+2024-06-13 01:16:27.294 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==>  Preparing: SELECT * FROM word_phrases_info WHERE Word_id = ?
+2024-06-13 01:16:27.295 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : ==> Parameters: 10205(Integer)
+2024-06-13 01:16:27.296 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findPhrasesByWordId              : <==      Total: 4
+2024-06-13 01:16:27.297 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==>  Preparing: SELECT * FROM words_root_info WHERE Word_id = ?
+2024-06-13 01:16:27.297 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : ==> Parameters: 10205(Integer)
+2024-06-13 01:16:27.299 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findRootByWordId   : <==      Total: 1
+2024-06-13 01:16:27.300 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==>  Preparing: select * from level_info where Level = ?
+2024-06-13 01:16:27.300 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : ==> Parameters: 4(Integer)
+2024-06-13 01:16:27.301 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findByLevel   : <==      Total: 1
+2024-06-13 01:16:43.720 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.S.findBySentenceId                 : ==>  Preparing: SELECT * FROM sentence_info WHERE sentence_id = ?
+2024-06-13 01:16:43.721 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.S.findBySentenceId                 : ==> Parameters: 15056(Integer)
+2024-06-13 01:16:43.721  WARN 20376 --- [http-nio-8080-exec-7] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/englishappletdb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8, version : 1.2.4, lastPacketReceivedIdleMillis : 89603
+2024-06-13 01:16:43.722 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.S.findBySentenceId                 : <==      Total: 1
+2024-06-13 01:16:43.725 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.S.findBySentenceId                 : ==>  Preparing: SELECT * FROM sentence_info WHERE sentence_id = ?
+2024-06-13 01:16:43.726 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.S.findBySentenceId                 : ==> Parameters: 15057(Integer)
+2024-06-13 01:16:43.729 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.S.findBySentenceId                 : <==      Total: 1
+2024-06-13 01:16:43.731 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.S.findBySentenceId                 : ==>  Preparing: SELECT * FROM sentence_info WHERE sentence_id = ?
+2024-06-13 01:16:43.732 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.S.findBySentenceId                 : ==> Parameters: 15058(Integer)
+2024-06-13 01:16:43.733 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.S.findBySentenceId                 : <==      Total: 1
+2024-06-13 01:17:59.733  WARN 20376 --- [http-nio-8080-exec-2] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/englishappletdb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8, version : 1.2.4, lastPacketReceivedIdleMillis : 76000
+2024-06-13 01:17:59.735  WARN 20376 --- [http-nio-8080-exec-2] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/englishappletdb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8, version : 1.2.4, lastPacketReceivedIdleMillis : 76004
+2024-06-13 01:17:59.743 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:17:59.750 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 210(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:17:59.775 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:17:59.802 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:17:59.803 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:17:59.806 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:17:59.938 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:17:59.939 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 210(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:17:59.941 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:17:59.953 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:17:59.955 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:17:59.958 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:18:09.814 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:18:09.814 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 209(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:18:09.820 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:18:10.055 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:10.056 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 121(Integer)
+2024-06-13 01:18:10.063 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:10.066 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:10.067 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 121(Integer)
+2024-06-13 01:18:10.082 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:10.083 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:10.083 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 122(Integer)
+2024-06-13 01:18:10.085 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:10.087 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:10.088 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 122(Integer)
+2024-06-13 01:18:10.090 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:10.092 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:10.092 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 123(Integer)
+2024-06-13 01:18:10.094 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:10.095 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:10.096 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 123(Integer)
+2024-06-13 01:18:10.097 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:10.099 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:10.100 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 124(Integer)
+2024-06-13 01:18:10.101 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:10.103 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:10.103 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 124(Integer)
+2024-06-13 01:18:10.108 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:10.109 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:10.110 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 125(Integer)
+2024-06-13 01:18:10.111 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:10.112 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:10.112 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 125(Integer)
+2024-06-13 01:18:10.114 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:10.116 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:10.117 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 126(Integer)
+2024-06-13 01:18:10.118 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:10.119 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:10.120 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 126(Integer)
+2024-06-13 01:18:10.121 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:10.123 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:10.123 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 127(Integer)
+2024-06-13 01:18:10.124 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:10.126 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:10.127 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 127(Integer)
+2024-06-13 01:18:10.129 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:10.130 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:10.131 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 128(Integer)
+2024-06-13 01:18:10.132 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:10.133 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:10.133 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 128(Integer)
+2024-06-13 01:18:10.134 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:10.136 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:10.137 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 129(Integer)
+2024-06-13 01:18:10.138 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:10.139 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:10.140 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 129(Integer)
+2024-06-13 01:18:10.142 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 0
+2024-06-13 01:18:10.143 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:10.143 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 130(Integer)
+2024-06-13 01:18:10.144 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:10.145 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:10.145 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 130(Integer)
+2024-06-13 01:18:10.147 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:10.148 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:10.149 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 131(Integer)
+2024-06-13 01:18:10.150 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:10.151 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:10.152 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 131(Integer)
+2024-06-13 01:18:10.154 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:47.824 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:18:47.825 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 209(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:18:47.827 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:18:47.848 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:18:47.849 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:18:47.850 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:18:47.936 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:18:47.937 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 209(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:18:47.940 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:18:47.951 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:18:47.952 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:18:47.954 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:18:51.093 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:18:51.094 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 208(Integer), 127(Integer), 4(Integer), 16-12-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:18:51.101 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:18:51.322 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:51.323 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 121(Integer)
+2024-06-13 01:18:51.325 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:51.325 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:51.326 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 121(Integer)
+2024-06-13 01:18:51.327 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:51.328 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:51.329 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 122(Integer)
+2024-06-13 01:18:51.330 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:51.331 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:51.332 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 122(Integer)
+2024-06-13 01:18:51.336 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:51.337 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:51.338 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 123(Integer)
+2024-06-13 01:18:51.339 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:51.340 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:51.341 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 123(Integer)
+2024-06-13 01:18:51.342 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:51.343 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:51.344 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 124(Integer)
+2024-06-13 01:18:51.346 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:51.347 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:51.348 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 124(Integer)
+2024-06-13 01:18:51.350 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:51.351 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:51.352 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 125(Integer)
+2024-06-13 01:18:51.359 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:51.361 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:51.362 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 125(Integer)
+2024-06-13 01:18:51.364 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:51.365 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:51.366 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 126(Integer)
+2024-06-13 01:18:51.369 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:51.370 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:51.370 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 126(Integer)
+2024-06-13 01:18:51.372 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:51.373 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:51.373 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 127(Integer)
+2024-06-13 01:18:51.374 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:51.375 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:51.376 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 127(Integer)
+2024-06-13 01:18:51.377 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:51.378 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:51.378 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 128(Integer)
+2024-06-13 01:18:51.380 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:51.380 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:51.381 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 128(Integer)
+2024-06-13 01:18:51.383 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:51.385 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:51.385 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 129(Integer)
+2024-06-13 01:18:51.387 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:51.388 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:51.388 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 129(Integer)
+2024-06-13 01:18:51.389 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 0
+2024-06-13 01:18:51.391 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:51.392 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 130(Integer)
+2024-06-13 01:18:51.394 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:51.394 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:51.396 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 130(Integer)
+2024-06-13 01:18:51.398 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:18:51.399 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:18:51.400 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 131(Integer)
+2024-06-13 01:18:51.401 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:18:51.402 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:18:51.403 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 131(Integer)
+2024-06-13 01:18:51.406 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:19:17.517 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:19:17.519 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 213(Integer), 127(Integer), 4(Integer), 16-13-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:19:17.528 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:19:24.894 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:19:24.895 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 212(Integer), 127(Integer), 4(Integer), 16-13-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:19:24.902 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:19:25.059 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:19:25.060 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 131(Integer)
+2024-06-13 01:19:25.062 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:19:25.063 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:19:25.064 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 131(Integer)
+2024-06-13 01:19:25.066 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:19:25.067 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:19:25.067 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 132(Integer)
+2024-06-13 01:19:25.069 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:19:25.070 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:19:25.070 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 132(Integer)
+2024-06-13 01:19:25.072 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:19:25.074 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:19:25.074 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 133(Integer)
+2024-06-13 01:19:25.076 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:19:25.077 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:19:25.078 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 133(Integer)
+2024-06-13 01:19:25.080 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:19:25.081 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:19:25.081 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 134(Integer)
+2024-06-13 01:19:25.083 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:19:25.084 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:19:25.084 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 134(Integer)
+2024-06-13 01:19:25.086 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:19:25.087 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:19:25.087 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 135(Integer)
+2024-06-13 01:19:25.088 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:19:25.089 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:19:25.090 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 135(Integer)
+2024-06-13 01:19:25.091 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:19:25.093 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:19:25.094 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 136(Integer)
+2024-06-13 01:19:25.095 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:19:25.096 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:19:25.096 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 136(Integer)
+2024-06-13 01:19:25.100 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:19:25.100 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:19:25.101 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 137(Integer)
+2024-06-13 01:19:25.103 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:19:25.104 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:19:25.105 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 137(Integer)
+2024-06-13 01:19:25.108 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:19:25.110 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:19:25.110 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 138(Integer)
+2024-06-13 01:19:25.113 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:19:25.114 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:19:25.115 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 138(Integer)
+2024-06-13 01:19:25.116 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:19:25.118 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:19:25.118 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 139(Integer)
+2024-06-13 01:19:25.120 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:19:25.121 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:19:25.122 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 139(Integer)
+2024-06-13 01:19:25.124 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 0
+2024-06-13 01:19:25.126 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:19:25.126 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 140(Integer)
+2024-06-13 01:19:25.129 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:19:25.130 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:19:25.130 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 140(Integer)
+2024-06-13 01:19:25.133 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:19:25.134 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_question_info WHERE Word_Question_id = ?
+2024-06-13 01:19:25.135 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 141(Integer)
+2024-06-13 01:19:25.136 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 1
+2024-06-13 01:19:25.137 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==>  Preparing: SELECT * FROM word_choices_info WHERE Word_Question_Id = ?
+2024-06-13 01:19:25.137 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : ==> Parameters: 141(Integer)
+2024-06-13 01:19:25.139 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.W.findAllByWordQuestionId          : <==      Total: 4
+2024-06-13 01:19:34.982 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:19:34.983 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 212(Integer), 127(Integer), 4(Integer), 16-13-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:19:34.986 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:19:35.105 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:19:35.106 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:19:35.107 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:19:35.130 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:19:35.131 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 212(Integer), 127(Integer), 4(Integer), 16-13-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:19:35.134 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:19:35.134 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:19:35.134 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:19:35.137 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:19:39.974 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:19:39.977 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 212(Integer), 126(Integer), 4(Integer), 16-13-3-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:19:39.985 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:19:40.203 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.getPassageBySelectedRankAndLevel : ==>  Preparing: SELECT * FROM reading_passages_info WHERE Level = ? AND Passage_id = (SELECT Passage_id FROM (SELECT Passage_id FROM reading_passages_info WHERE Level = ? LIMIT ?, 1) AS tmp)
+2024-06-13 01:19:40.204 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.getPassageBySelectedRankAndLevel : ==> Parameters: 4(Integer), 4(Integer), 3(Integer)
+2024-06-13 01:19:40.215 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.getPassageBySelectedRankAndLevel : <==      Total: 1
+2024-06-13 01:19:40.216 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.getQuestionsByPassageId          : ==>  Preparing: SELECT * FROM reading_questions_info WHERE Passage_id = ?
+2024-06-13 01:19:40.217 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.getQuestionsByPassageId          : ==> Parameters: 4(Integer)
+2024-06-13 01:19:40.226 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.getQuestionsByPassageId          : <==      Total: 5
+2024-06-13 01:19:40.290 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM reading_choices_info WHERE reading_question_id IN ( ? , ? , ? , ? , ? )
+2024-06-13 01:19:40.290 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.getChoicesByQuestions            : ==> Parameters: 16(Integer), 17(Integer), 18(Integer), 19(Integer), 20(Integer)
+2024-06-13 01:19:40.298 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.getChoicesByQuestions            : <==      Total: 20
+2024-06-13 01:19:40.299 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:19:40.300 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:19:40.301 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:20:07.339 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.R.getPassageBySelectedRankAndLevel : ==>  Preparing: SELECT * FROM reading_passages_info WHERE Level = ? AND Passage_id = (SELECT Passage_id FROM (SELECT Passage_id FROM reading_passages_info WHERE Level = ? LIMIT ?, 1) AS tmp)
+2024-06-13 01:20:07.340 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.R.getPassageBySelectedRankAndLevel : ==> Parameters: 4(Integer), 4(Integer), 3(Integer)
+2024-06-13 01:20:07.342 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.R.getPassageBySelectedRankAndLevel : <==      Total: 1
+2024-06-13 01:20:07.343 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.R.getQuestionsByPassageId          : ==>  Preparing: SELECT * FROM reading_questions_info WHERE Passage_id = ?
+2024-06-13 01:20:07.344 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.R.getQuestionsByPassageId          : ==> Parameters: 4(Integer)
+2024-06-13 01:20:07.346 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.R.getQuestionsByPassageId          : <==      Total: 5
+2024-06-13 01:20:07.348 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.R.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM reading_choices_info WHERE reading_question_id IN ( ? , ? , ? , ? , ? )
+2024-06-13 01:20:07.348 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.R.getChoicesByQuestions            : ==> Parameters: 16(Integer), 17(Integer), 18(Integer), 19(Integer), 20(Integer)
+2024-06-13 01:20:07.351 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.R.getChoicesByQuestions            : <==      Total: 20
+2024-06-13 01:20:07.352 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.R.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:20:07.353 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.R.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:20:07.355 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.R.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:20:26.381 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.U.insertUserReadingAnswers         : ==>  Preparing: INSERT INTO User_Reading_Answers_info (User_id, Reading_Question_id, Selected_answer, Is_correct) VALUES (?, ?, ?, ?);
+2024-06-13 01:20:26.382 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.U.insertUserReadingAnswers         : ==> Parameters: 1(Integer), 16(Integer), 4(String), true(Boolean)
+2024-06-13 01:20:26.394 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.U.insertUserReadingAnswers         : <==    Updates: 1
+2024-06-13 01:20:26.394 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.U.insertUserReadingAnswers         : ==>  Preparing: INSERT INTO User_Reading_Answers_info (User_id, Reading_Question_id, Selected_answer, Is_correct) VALUES (?, ?, ?, ?);
+2024-06-13 01:20:26.396 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.U.insertUserReadingAnswers         : ==> Parameters: 1(Integer), 17(Integer), 1(String), true(Boolean)
+2024-06-13 01:20:26.400 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.U.insertUserReadingAnswers         : <==    Updates: 1
+2024-06-13 01:20:26.400 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.U.insertUserReadingAnswers         : ==>  Preparing: INSERT INTO User_Reading_Answers_info (User_id, Reading_Question_id, Selected_answer, Is_correct) VALUES (?, ?, ?, ?);
+2024-06-13 01:20:26.402 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.U.insertUserReadingAnswers         : ==> Parameters: 1(Integer), 18(Integer), 4(String), true(Boolean)
+2024-06-13 01:20:26.406 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.U.insertUserReadingAnswers         : <==    Updates: 1
+2024-06-13 01:20:26.408 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.U.insertUserReadingAnswers         : ==>  Preparing: INSERT INTO User_Reading_Answers_info (User_id, Reading_Question_id, Selected_answer, Is_correct) VALUES (?, ?, ?, ?);
+2024-06-13 01:20:26.408 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.U.insertUserReadingAnswers         : ==> Parameters: 1(Integer), 19(Integer), 3(String), true(Boolean)
+2024-06-13 01:20:26.412 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.U.insertUserReadingAnswers         : <==    Updates: 1
+2024-06-13 01:20:26.413 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.U.insertUserReadingAnswers         : ==>  Preparing: INSERT INTO User_Reading_Answers_info (User_id, Reading_Question_id, Selected_answer, Is_correct) VALUES (?, ?, ?, ?);
+2024-06-13 01:20:26.414 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.U.insertUserReadingAnswers         : ==> Parameters: 1(Integer), 20(Integer), 2(String), true(Boolean)
+2024-06-13 01:20:26.417 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.U.insertUserReadingAnswers         : <==    Updates: 1
+2024-06-13 01:20:26.434 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:20:26.434 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 212(Integer), 128(Integer), 4(Integer), 16-13-4-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:20:26.438 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:20:35.170 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:20:35.171 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 212(Integer), 127(Integer), 4(Integer), 16-13-4-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:20:35.177 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:20:35.456 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getPassageBySelectedRankAndLevel : ==>  Preparing: SELECT * FROM reading_passages_info WHERE Level = ? AND Passage_id = (SELECT Passage_id FROM (SELECT Passage_id FROM reading_passages_info WHERE Level = ? LIMIT ?, 1) AS tmp)
+2024-06-13 01:20:35.457 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getPassageBySelectedRankAndLevel : ==> Parameters: 4(Integer), 4(Integer), 4(Integer)
+2024-06-13 01:20:35.459 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getPassageBySelectedRankAndLevel : <==      Total: 1
+2024-06-13 01:20:35.460 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getQuestionsByPassageId          : ==>  Preparing: SELECT * FROM reading_questions_info WHERE Passage_id = ?
+2024-06-13 01:20:35.461 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getQuestionsByPassageId          : ==> Parameters: 5(Integer)
+2024-06-13 01:20:35.463 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getQuestionsByPassageId          : <==      Total: 5
+2024-06-13 01:20:35.465 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM reading_choices_info WHERE reading_question_id IN ( ? , ? , ? , ? , ? )
+2024-06-13 01:20:35.466 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getChoicesByQuestions            : ==> Parameters: 21(Integer), 22(Integer), 23(Integer), 24(Integer), 25(Integer)
+2024-06-13 01:20:35.469 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getChoicesByQuestions            : <==      Total: 20
+2024-06-13 01:20:35.470 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:20:35.471 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:20:35.472 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:20:41.889 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:20:41.890 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 212(Integer), 127(Integer), 4(Integer), 16-13-4-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:20:41.892 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:20:41.950 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:20:41.950 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:20:41.952 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:20:41.970 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:20:41.972 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 212(Integer), 127(Integer), 4(Integer), 16-13-4-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:20:41.976 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:20:41.977 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:20:41.977 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:20:41.979 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:20:48.265 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:20:48.267 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 212(Integer), 125(Integer), 4(Integer), 16-13-4-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:20:48.271 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:20:48.459 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.L.getAudioBySelectedRankAndLevel   : ==>  Preparing: SELECT * FROM listening_audio_info WHERE Level = ? AND Audio_id = (SELECT Audio_id FROM (SELECT Audio_id FROM listening_audio_info WHERE Level = ? LIMIT ?,1) AS tmp)
+2024-06-13 01:20:48.459 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.L.getAudioBySelectedRankAndLevel   : ==> Parameters: 4(Integer), 4(Integer), 1(Integer)
+2024-06-13 01:20:48.466 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.L.getAudioBySelectedRankAndLevel   : <==      Total: 1
+2024-06-13 01:20:48.468 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:20:48.469 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 2(Integer)
+2024-06-13 01:20:48.475 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.L.getQuestionsByAudioId            : <==      Total: 2
+2024-06-13 01:20:48.477 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? )
+2024-06-13 01:20:48.477 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 3(Integer), 4(Integer)
+2024-06-13 01:20:48.484 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.L.getChoicesByQuestions            : <==      Total: 8
+2024-06-13 01:20:48.485 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:20:48.486 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:20:48.487 DEBUG 20376 --- [http-nio-8080-exec-4] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:21:28.388 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:21:28.389 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 202(Integer), 126(Integer), 4(Integer), 16-13-4-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:21:28.394 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:21:40.495 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:21:40.496 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 202(Integer), 125(Integer), 4(Integer), 16-13-4-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:21:40.496  WARN 20376 --- [http-nio-8080-exec-10] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/englishappletdb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8, version : 1.2.4, lastPacketReceivedIdleMillis : 125360
+2024-06-13 01:21:40.500 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:21:40.500 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.mapper.MedalInfoMapper.getAll        : ==>  Preparing: SELECT * FROM medal_info
+2024-06-13 01:21:40.500 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.mapper.MedalInfoMapper.getAll        : ==> Parameters: 
+2024-06-13 01:21:40.502 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.mapper.MedalInfoMapper.getAll        : <==      Total: 5
+2024-06-13 01:21:42.492 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.mapper.MedalInfoMapper.getAll        : ==>  Preparing: SELECT * FROM medal_info
+2024-06-13 01:21:42.494 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:21:42.494 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.mapper.MedalInfoMapper.getAll        : ==> Parameters: 
+2024-06-13 01:21:42.494 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 202(Integer), 115(Integer), 4(Integer), 16-13-4-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:21:42.496 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.mapper.MedalInfoMapper.getAll        : <==      Total: 5
+2024-06-13 01:21:42.500 DEBUG 20376 --- [http-nio-8080-exec-1] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:21:42.552 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : ==>  Preparing: UPDATE user_info SET User_name = ?, User_password= ?, Nick_name= ?, Sex= ?, Phone= ?, Head= ?, Gold= ?, Jewel= ?, Level= ?, `Rank`= ?, Medal_id= ? WHERE User_id = ?
+2024-06-13 01:21:42.552 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : ==> Parameters: zhuruien(String), e10adc3949ba59abbe56e057f20f883e(String), 朱瑞恩(String), 女(String), 13174436885(String), user\zhuruien-1.jpg(String), 202(Integer), 115(Integer), 4(Integer), 16-13-4-1(String), 4(Integer), 1(Integer)
+2024-06-13 01:21:42.554 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.UserInfoMapper.updateUserInfo      : <==    Updates: 1
+2024-06-13 01:23:08.008  WARN 20376 --- [http-nio-8080-exec-3] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/englishappletdb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8, version : 1.2.4, lastPacketReceivedIdleMillis : 85454
+2024-06-13 01:23:08.009  WARN 20376 --- [http-nio-8080-exec-3] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/englishappletdb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8, version : 1.2.4, lastPacketReceivedIdleMillis : 85513
+2024-06-13 01:23:08.015 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.mapper.AdInfoMapper.findByAdName     : ==>  Preparing: select * from ad_info where 1=1 and Ad_name = ?
+2024-06-13 01:23:08.016 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.mapper.AdInfoMapper.findByAdName     : ==> Parameters: admin(String)
+2024-06-13 01:23:08.032 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.mapper.AdInfoMapper.findByAdName     : <==      Total: 1
+2024-06-13 01:23:08.507 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.mapper.MedalInfoMapper.getAll        : ==>  Preparing: SELECT * FROM medal_info
+2024-06-13 01:23:08.507 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.mapper.MedalInfoMapper.getAll        : ==> Parameters: 
+2024-06-13 01:23:08.510 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.mapper.MedalInfoMapper.getAll        : <==      Total: 5
+2024-06-13 01:23:15.767 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.U.getAllUserData_COUNT             : ==>  Preparing: SELECT count(0) FROM user_info u LEFT JOIN level_info l ON u.level = l.level LEFT JOIN medal_info m ON u.Medal_id = m.Medal_id
+2024-06-13 01:23:15.767 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.U.getAllUserData_COUNT             : ==> Parameters: 
+2024-06-13 01:23:15.771 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.U.getAllUserData_COUNT             : <==      Total: 1
+2024-06-13 01:23:15.775 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.UserInfoMapper.getAllUserData      : ==>  Preparing: SELECT u.User_id AS "userInfo.userId", u.User_name AS "userInfo.userName", u.User_password AS "userInfo.userPassword", u.Nick_name AS "userInfo.nickName", u.Sex AS "userInfo.sex", u.phone AS "userInfo.phone", u.head AS "userInfo.head", u.gold AS "userInfo.gold", u.jewel AS "userInfo.jewel", u.level AS "userInfo.level", u.rank AS "userInfo.rank", u.Medal_id AS "userInfo.medalId", l.level AS "levelInfo.level", l.grade AS "levelInfo.grade", m.Medal_id AS "medalInfo.medalId", m.Medal_name AS "medalInfo.medalName" FROM user_info u LEFT JOIN level_info l ON u.level = l.level LEFT JOIN medal_info m ON u.Medal_id = m.Medal_id LIMIT ?
+2024-06-13 01:23:15.776 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.UserInfoMapper.getAllUserData      : ==> Parameters: 10(Integer)
+2024-06-13 01:23:15.779 DEBUG 20376 --- [http-nio-8080-exec-2] c.e.m.UserInfoMapper.getAllUserData      : <==      Total: 5
+2024-06-13 01:23:41.790 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.mapper.LevelInfoMapper.findAll       : ==>  Preparing: select * from level_info
+2024-06-13 01:23:41.790 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.mapper.LevelInfoMapper.findAll       : ==> Parameters: 
+2024-06-13 01:23:41.793 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.mapper.LevelInfoMapper.findAll       : <==      Total: 15
+2024-06-13 01:23:58.353 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllWithGrade_COUNT           : ==>  Preparing: SELECT count(0) FROM Word_Books_info wb JOIN Level_info li ON wb.Level = li.Level
+2024-06-13 01:23:58.354 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllWithGrade_COUNT           : ==> Parameters: 
+2024-06-13 01:23:58.356 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllWithGrade_COUNT           : <==      Total: 1
+2024-06-13 01:23:58.357 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllWithGrade                 : ==>  Preparing: SELECT wb.Book_id, wb.Book_name, wb.Level, li.Grade FROM Word_Books_info wb JOIN Level_info li ON wb.Level = li.Level LIMIT ?
+2024-06-13 01:23:58.357 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllWithGrade                 : ==> Parameters: 10(Integer)
+2024-06-13 01:23:58.360 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.W.findAllWithGrade                 : <==      Total: 10
+2024-06-13 01:24:03.634 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findAllWithBook_COUNT            : ==>  Preparing: SELECT count(0) FROM words_info wi JOIN Word_Books_info wb ON wi.Book_id = wb.Book_id
+2024-06-13 01:24:03.635 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findAllWithBook_COUNT            : ==> Parameters: 
+2024-06-13 01:24:03.739 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.W.findAllWithBook_COUNT            : <==      Total: 1
+2024-06-13 01:24:03.739 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findAllWithBook    : ==>  Preparing: SELECT wi.Word_id, wi.Word, wi.Word_rank, wb.Book_name,wi.Us_phonetic,wi.Uk_phonetic,wi.Us_pronounce,wi.Uk_pronounce FROM words_info wi JOIN Word_Books_info wb ON wi.Book_id = wb.Book_id LIMIT ?
+2024-06-13 01:24:03.740 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findAllWithBook    : ==> Parameters: 20(Integer)
+2024-06-13 01:24:03.748 DEBUG 20376 --- [http-nio-8080-exec-5] c.e.m.WordsInfoMapper.findAllWithBook    : <==      Total: 20
+2024-06-13 01:24:07.236 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.mapper.WordsInfoMapper.findByWordId  : ==>  Preparing: SELECT * FROM words_info WHERE Word_id = ?
+2024-06-13 01:24:07.236 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.mapper.WordsInfoMapper.findByWordId  : ==> Parameters: 1(Integer)
+2024-06-13 01:24:07.236 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.mapper.WordsInfoMapper.findByWordId  : <==      Total: 1
+2024-06-13 01:24:07.238 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.WordBooksInfoMapper.findByBookId   : ==>  Preparing: select * from word_books_info where Book_id = ?
+2024-06-13 01:24:07.238 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.WordBooksInfoMapper.findByBookId   : ==> Parameters: 1(Integer)
+2024-06-13 01:24:07.239 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.WordBooksInfoMapper.findByBookId   : <==      Total: 1
+2024-06-13 01:24:07.239 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.W.findSentenceByWordId             : ==>  Preparing: SELECT * FROM sentence_info WHERE Word_id = ?
+2024-06-13 01:24:07.239 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.W.findSentenceByWordId             : ==> Parameters: 1(Integer)
+2024-06-13 01:24:07.242 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.W.findSentenceByWordId             : <==      Total: 1
+2024-06-13 01:24:07.242 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.W.findSynonymsByWordId             : ==>  Preparing: SELECT * FROM word_synonyms_info WHERE Word_id = ?
+2024-06-13 01:24:07.243 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.W.findSynonymsByWordId             : ==> Parameters: 1(Integer)
+2024-06-13 01:24:07.245 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.W.findSynonymsByWordId             : <==      Total: 2
+2024-06-13 01:24:07.246 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.W.findPhrasesByWordId              : ==>  Preparing: SELECT * FROM word_phrases_info WHERE Word_id = ?
+2024-06-13 01:24:07.246 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.W.findPhrasesByWordId              : ==> Parameters: 1(Integer)
+2024-06-13 01:24:07.250 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.W.findPhrasesByWordId              : <==      Total: 2
+2024-06-13 01:24:07.250 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.WordsInfoMapper.findRootByWordId   : ==>  Preparing: SELECT * FROM words_root_info WHERE Word_id = ?
+2024-06-13 01:24:07.251 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.WordsInfoMapper.findRootByWordId   : ==> Parameters: 1(Integer)
+2024-06-13 01:24:07.254 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.m.WordsInfoMapper.findRootByWordId   : <==      Total: 3
+2024-06-13 01:24:07.255 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.mapper.LevelInfoMapper.findByLevel   : ==>  Preparing: select * from level_info where Level = ?
+2024-06-13 01:24:07.255 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.mapper.LevelInfoMapper.findByLevel   : ==> Parameters: 8(Integer)
+2024-06-13 01:24:07.257 DEBUG 20376 --- [http-nio-8080-exec-7] c.e.mapper.LevelInfoMapper.findByLevel   : <==      Total: 1
+2024-06-13 01:24:07.274 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.S.findBySentenceId                 : ==>  Preparing: SELECT * FROM sentence_info WHERE sentence_id = ?
+2024-06-13 01:24:07.274 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.S.findBySentenceId                 : ==> Parameters: 1(Integer)
+2024-06-13 01:24:07.275 DEBUG 20376 --- [http-nio-8080-exec-3] c.e.m.S.findBySentenceId                 : <==      Total: 1
+2024-06-13 01:24:18.159 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.findAllWithGrade_COUNT           : ==>  Preparing: SELECT count(0) FROM Reading_Passages_info r JOIN Level_info l ON r.Level = l.Level
+2024-06-13 01:24:18.162 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.findAllWithGrade_COUNT           : ==> Parameters: 
+2024-06-13 01:24:18.165 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.findAllWithGrade_COUNT           : <==      Total: 1
+2024-06-13 01:24:18.165 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.findAllWithGrade                 : ==>  Preparing: SELECT r.Passage_id,r.Passage_title,r.Passage_text,r.Level,l.Grade FROM Reading_Passages_info r JOIN Level_info l ON r.Level = l.Level LIMIT ?
+2024-06-13 01:24:18.165 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.findAllWithGrade                 : ==> Parameters: 20(Integer)
+2024-06-13 01:24:18.170 DEBUG 20376 --- [http-nio-8080-exec-9] c.e.m.R.findAllWithGrade                 : <==      Total: 7
+2024-06-13 01:24:20.468 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getPassageByPassageId            : ==>  Preparing: SELECT * FROM reading_passages_info WHERE Passage_id = ?
+2024-06-13 01:24:20.469 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getPassageByPassageId            : ==> Parameters: 1(Integer)
+2024-06-13 01:24:20.469 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getPassageByPassageId            : <==      Total: 1
+2024-06-13 01:24:20.470 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getQuestionsByPassageId          : ==>  Preparing: SELECT * FROM reading_questions_info WHERE Passage_id = ?
+2024-06-13 01:24:20.470 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getQuestionsByPassageId          : ==> Parameters: 1(Integer)
+2024-06-13 01:24:20.473 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getQuestionsByPassageId          : <==      Total: 5
+2024-06-13 01:24:20.474 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM reading_choices_info WHERE reading_question_id IN ( ? , ? , ? , ? , ? )
+2024-06-13 01:24:20.474 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getChoicesByQuestions            : ==> Parameters: 1(Integer), 2(Integer), 3(Integer), 4(Integer), 5(Integer)
+2024-06-13 01:24:20.477 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getChoicesByQuestions            : <==      Total: 20
+2024-06-13 01:24:20.477 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:20.477 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:20.478 DEBUG 20376 --- [http-nio-8080-exec-8] c.e.m.R.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.709 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getALlListeningAudioInfo_COUNT   : ==>  Preparing: SELECT count(0) FROM listening_audio_info
+2024-06-13 01:24:44.709 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getALlListeningAudioInfo_COUNT   : ==> Parameters: 
+2024-06-13 01:24:44.721 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getALlListeningAudioInfo_COUNT   : <==      Total: 1
+2024-06-13 01:24:44.721 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getALlListeningAudioInfo         : ==>  Preparing: SELECT * FROM listening_audio_info LIMIT ?
+2024-06-13 01:24:44.722 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getALlListeningAudioInfo         : ==> Parameters: 20(Integer)
+2024-06-13 01:24:44.727 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getALlListeningAudioInfo         : <==      Total: 19
+2024-06-13 01:24:44.729 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.730 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 1(Integer)
+2024-06-13 01:24:44.732 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 2
+2024-06-13 01:24:44.734 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? )
+2024-06-13 01:24:44.734 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 1(Integer), 2(Integer)
+2024-06-13 01:24:44.741 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 8
+2024-06-13 01:24:44.742 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.742 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.745 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.745 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.745 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 2(Integer)
+2024-06-13 01:24:44.746 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 2
+2024-06-13 01:24:44.747 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? )
+2024-06-13 01:24:44.747 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 3(Integer), 4(Integer)
+2024-06-13 01:24:44.748 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 8
+2024-06-13 01:24:44.749 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.749 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.750 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.782 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.782 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 3(Integer)
+2024-06-13 01:24:44.784 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 2
+2024-06-13 01:24:44.785 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? )
+2024-06-13 01:24:44.786 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 5(Integer), 6(Integer)
+2024-06-13 01:24:44.789 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 8
+2024-06-13 01:24:44.789 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.790 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.792 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.793 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.793 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.795 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 3
+2024-06-13 01:24:44.796 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? , ? )
+2024-06-13 01:24:44.796 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 7(Integer), 8(Integer), 9(Integer)
+2024-06-13 01:24:44.797 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 12
+2024-06-13 01:24:44.797 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.799 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.799 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.800 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.800 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 5(Integer)
+2024-06-13 01:24:44.801 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 4
+2024-06-13 01:24:44.802 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? , ? , ? )
+2024-06-13 01:24:44.802 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 10(Integer), 11(Integer), 12(Integer), 13(Integer)
+2024-06-13 01:24:44.804 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 16
+2024-06-13 01:24:44.804 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.804 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.805 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.805 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.806 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 6(Integer)
+2024-06-13 01:24:44.808 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 4
+2024-06-13 01:24:44.808 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? , ? , ? )
+2024-06-13 01:24:44.810 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 14(Integer), 15(Integer), 16(Integer), 17(Integer)
+2024-06-13 01:24:44.811 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 16
+2024-06-13 01:24:44.812 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.812 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.812 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.813 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.813 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 7(Integer)
+2024-06-13 01:24:44.814 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 3
+2024-06-13 01:24:44.814 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? , ? )
+2024-06-13 01:24:44.814 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 18(Integer), 19(Integer), 20(Integer)
+2024-06-13 01:24:44.816 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 12
+2024-06-13 01:24:44.816 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.816 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.817 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.819 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.819 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 8(Integer)
+2024-06-13 01:24:44.821 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 3
+2024-06-13 01:24:44.822 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? , ? )
+2024-06-13 01:24:44.822 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 21(Integer), 22(Integer), 23(Integer)
+2024-06-13 01:24:44.825 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 12
+2024-06-13 01:24:44.826 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.827 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.828 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.829 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.829 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 9(Integer)
+2024-06-13 01:24:44.830 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 4
+2024-06-13 01:24:44.831 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? , ? , ? )
+2024-06-13 01:24:44.831 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 24(Integer), 25(Integer), 26(Integer), 27(Integer)
+2024-06-13 01:24:44.833 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 16
+2024-06-13 01:24:44.834 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.834 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.835 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.836 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.836 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 10(Integer)
+2024-06-13 01:24:44.837 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 2
+2024-06-13 01:24:44.838 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? )
+2024-06-13 01:24:44.839 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 28(Integer), 29(Integer)
+2024-06-13 01:24:44.841 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 8
+2024-06-13 01:24:44.841 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.841 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.842 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.843 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.843 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 11(Integer)
+2024-06-13 01:24:44.844 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 2
+2024-06-13 01:24:44.844 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? )
+2024-06-13 01:24:44.845 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 30(Integer), 31(Integer)
+2024-06-13 01:24:44.846 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 8
+2024-06-13 01:24:44.846 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.847 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.848 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.848 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.849 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 12(Integer)
+2024-06-13 01:24:44.850 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 4
+2024-06-13 01:24:44.850 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? , ? , ? )
+2024-06-13 01:24:44.852 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 32(Integer), 33(Integer), 34(Integer), 35(Integer)
+2024-06-13 01:24:44.853 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 16
+2024-06-13 01:24:44.854 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.854 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.856 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.857 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.858 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 13(Integer)
+2024-06-13 01:24:44.859 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 4
+2024-06-13 01:24:44.860 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? , ? , ? )
+2024-06-13 01:24:44.861 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 36(Integer), 37(Integer), 38(Integer), 39(Integer)
+2024-06-13 01:24:44.862 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 17
+2024-06-13 01:24:44.862 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.863 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.864 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.865 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.865 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 14(Integer)
+2024-06-13 01:24:44.866 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 3
+2024-06-13 01:24:44.867 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? , ? )
+2024-06-13 01:24:44.867 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 40(Integer), 41(Integer), 42(Integer)
+2024-06-13 01:24:44.868 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 12
+2024-06-13 01:24:44.869 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.869 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.870 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.871 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.871 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 15(Integer)
+2024-06-13 01:24:44.873 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 3
+2024-06-13 01:24:44.874 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? , ? )
+2024-06-13 01:24:44.874 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 43(Integer), 44(Integer), 45(Integer)
+2024-06-13 01:24:44.876 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 12
+2024-06-13 01:24:44.877 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.877 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.878 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.878 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.878 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 16(Integer)
+2024-06-13 01:24:44.879 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 3
+2024-06-13 01:24:44.880 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? , ? )
+2024-06-13 01:24:44.881 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 46(Integer), 47(Integer), 48(Integer)
+2024-06-13 01:24:44.882 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 12
+2024-06-13 01:24:44.882 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.882 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.885 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.885 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.885 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 17(Integer)
+2024-06-13 01:24:44.888 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 3
+2024-06-13 01:24:44.889 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? , ? )
+2024-06-13 01:24:44.890 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 49(Integer), 50(Integer), 51(Integer)
+2024-06-13 01:24:44.892 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 11
+2024-06-13 01:24:44.894 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.894 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.897 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.898 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.898 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 18(Integer)
+2024-06-13 01:24:44.902 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 3
+2024-06-13 01:24:44.904 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? , ? )
+2024-06-13 01:24:44.904 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 52(Integer), 53(Integer), 54(Integer)
+2024-06-13 01:24:44.906 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 12
+2024-06-13 01:24:44.906 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.907 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.909 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:44.909 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:44.910 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 19(Integer)
+2024-06-13 01:24:44.911 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getQuestionsByAudioId            : <==      Total: 2
+2024-06-13 01:24:44.912 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? )
+2024-06-13 01:24:44.913 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 55(Integer), 56(Integer)
+2024-06-13 01:24:44.915 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getChoicesByQuestions            : <==      Total: 8
+2024-06-13 01:24:44.916 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:44.917 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:44.919 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:24:48.689 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.L.getAudioByAudioId                : ==>  Preparing: SELECT * FROM listening_audio_info WHERE Audio_id = ?
+2024-06-13 01:24:48.690 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.L.getAudioByAudioId                : ==> Parameters: 4(Integer)
+2024-06-13 01:24:48.691 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.L.getAudioByAudioId                : <==      Total: 1
+2024-06-13 01:24:48.692 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.L.getQuestionsByAudioId            : ==>  Preparing: SELECT * FROM listening_questions_info WHERE Audio_id = ?
+2024-06-13 01:24:48.692 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.L.getQuestionsByAudioId            : ==> Parameters: 4(Integer)
+2024-06-13 01:24:48.693 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.L.getQuestionsByAudioId            : <==      Total: 3
+2024-06-13 01:24:48.693 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.L.getChoicesByQuestions            : ==>  Preparing: SELECT * FROM listening_choices_info WHERE listening_question_id IN ( ? , ? , ? )
+2024-06-13 01:24:48.694 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.L.getChoicesByQuestions            : ==> Parameters: 7(Integer), 8(Integer), 9(Integer)
+2024-06-13 01:24:48.695 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.L.getChoicesByQuestions            : <==      Total: 12
+2024-06-13 01:24:48.696 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.L.getLevelInfoByLevel              : ==>  Preparing: SELECT * FROM level_info WHERE level = ?
+2024-06-13 01:24:48.696 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.L.getLevelInfoByLevel              : ==> Parameters: 4(Integer)
+2024-06-13 01:24:48.697 DEBUG 20376 --- [http-nio-8080-exec-6] c.e.m.L.getLevelInfoByLevel              : <==      Total: 1
+2024-06-13 01:25:23.884 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.mapper.MedalInfoMapper.getAll        : ==>  Preparing: SELECT * FROM medal_info
+2024-06-13 01:25:23.886 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.mapper.MedalInfoMapper.getAll        : ==> Parameters: 
+2024-06-13 01:25:23.892 DEBUG 20376 --- [http-nio-8080-exec-10] c.e.mapper.MedalInfoMapper.getAll        : <==      Total: 5

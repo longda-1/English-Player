@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "单词对对碰",
+  "usingComponents": {
+    "countdown": "../../components/countdown/countdown"
+  }
+}

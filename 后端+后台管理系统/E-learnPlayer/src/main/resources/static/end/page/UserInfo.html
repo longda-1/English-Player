@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet"/>
+    <link href="../css/basic.css" rel="stylesheet"/>
+    <link href="../css/custom.css" rel="stylesheet"/>
+    <link href="../css/my.css" rel="stylesheet"/>
+    <link href="../css/element/index.css" rel="stylesheet"/>
+
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-cls-top" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">后台管理系统</a>
+        </div>
+        <div class="header-right">
+            <a href="javascript:void (0)" class="btn bg-info" @click="logout" title="退出登录">
+                <i class="fa fa-sign-out fa-2x"></i>
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="accountAdInfo.html" class="btn bg-info"  title="跳转到个人中心">
+                <i class="fa fa-user fa-2x"></i>
+            </a>
+        </div>
+        <div class="header-right" style="padding-top: 25px">
+            欢迎你，{{ad.nickName}}
+        </div>
+    </nav>
+    <nav class="navbar-default navbar-side" >
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main_menu">
+                <li>
+                    <a href="index.html"><i class="fa fa-dashboard"></i> 首页 </a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-yelp"></i> 信息管理 <span class="fa arrow"></span> </a>
+                    <ul class="nav nav-second-level collapse in">
+                        <li><a class="active-menu" href="UserInfo.html"><i class="fa fa-table"></i> 用户管理 </a></li>
+                        <li><a href="level.html"><i class="fa fa-table"></i> 英语水平管理 </a></li>
+                        <li><a href="#"><i class="fa fa-yelp"></i> 单词管理 <span class="fa arrow"></span> </a>
+                            <ul class="nav nav-third-level collapse in " style="margin-left: 30px;">
+                                <li><a href="wordBook.html"><i class="fa fa-table"></i> 单词书管理 </a></li>
+                                <li><a href="WordInfo.html"><i class="fa fa-table"></i> 单词表管理 </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-yelp"></i> 阅读管理 <span class="fa arrow"></span> </a>
+                            <ul class="nav nav-second-level collapse in"style="margin-left: 30px;">
+                                <li><a href="read.html"><i class="fa fa-table"></i> 阅读文章管理 </a></li>
+                                <li><a href="readSub.html"><i class="fa fa-table"></i> 阅读上传 </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-yelp"></i> 听力管理 <span class="fa arrow"></span> </a>
+                            <ul class="nav nav-second-level collapse in"style="margin-left: 30px;">
+                                <li><a href="listen.html"><i class="fa fa-table"></i> 听力材料管理 </a></li>
+                                <li><a href="listenSub.html"><i class="fa fa-table"></i> 听力上传 </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-yelp"></i> 系统管理 <span class="fa arrow"></span> </a>
+                    <ul class="nav nav-second-level collapse in">
+                        <li><a href="accountAdInfo.html"><i class="fa fa-user"></i> 个人中心 </a></li>
+                        <li><a href="updateadPassword.html"><i class="fa fa-unlock-alt"></i> 修改密码 </a></li>
+                    </ul>
+                </li>
+
+                <li><a href="login.html"><i class="fa fa-power-off"></i> 退出登录 </a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--右侧-->
+    <div id = "page-wrapper">
+        <div id = "page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="page-heading" style="text-align: center; font-size: 24px; font-weight: bold;">
+                            用户信息管理
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <div class="nx-table-header">
+                                    <button class="btn btn-sm btn-primary" @click="showAddModal">新增</button>
+<!--                                    <input type="text" placeholder="请输入搜索内容" v-model="searchQuery" @keyup.enter="searchUser">-->
+<!--                                    <i class="glyphicon glyphicon-search" @click="searchUser"></i>-->
+                                </div>
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead><!--列头的行-->
+                                        <tr><!--行-->
+                                            <th>用户id</th><!--列-->
+                                            <th>用户名</th>
+                                            <th>密码</th>
+                                            <th>昵称</th>
+                                            <th>性别</th>
+                                            <th>联系方式</th>
+                                            <th>头像</th>
+                                            <th>级别</th>
+                                            <th>金币</th>
+                                            <th>钻石</th>
+                                            <th>闯关等级</th>
+                                            <th>勋章</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody v-for ="obj in objs">
+                                        <tr>
+                                            <td>{{obj.userInfo.userId}}</td>
+                                            <td>{{obj.userInfo.userName}}</td>
+                                            <td>{{obj.userInfo.userPassword}}</td>
+                                            <td>{{obj.userInfo.nickName}}</td>
+                                            <td>{{obj.userInfo.sex}}</td>
+                                            <td>{{obj.userInfo.phone}}</td>
+                                            <td><img :src="`${serverBaseUrl}${obj.userInfo.head}`" alt="用户头像" style="width: 50px; height: 50px;"></td>
+                                            <td>{{obj.levelInfo.grade}}</td>
+                                            <td>{{obj.userInfo.gold}}</td>
+                                            <td>{{obj.userInfo.jewel}}</td>
+                                            <td>{{obj.userInfo.rank}}</td>
+                                            <td>{{obj.medalInfo.medalName}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <ul class="pagination">
+                                    <li class="page-item" v-bind:class="{disabled: pageInfo.isFirstPage}">
+                                        <a class="page-link" href="javascript:void(0)" v-on:click="loadTable(pageInfo.pageNum - 1)">上一页</a>
+                                    </li>
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="javascript:void (0)">{{pageInfo.pageNum}}</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" v-if="pageInfo.hasNextPage" href="javascript:void (0)"
+                                            v-on:click="loadTable(pageInfo.pageNum + 1)">{{pageInfo.pageNum + 1}}</a>
+                                    </li>
+                                    <li class="page-item" v-bind:class="{disabled: pageInfo.isLastPage}">
+                                        <a class="page-link" href="javascript:void(0)" v-on:click="loadTable(pageInfo.pageNum + 1)">下一页</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 新增弹窗 -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="addModalLabel">新增用户</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="userId">用户id</label>
+                            <input type="text" class="form-control" id="userId" value="1" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="userName">用户名</label>
+                            <input type="text" class="form-control" id="userName" v-model="newUser.userInfo.userName">
+                        </div>
+                        <div class="form-group">
+                            <label for="userPassword">密码</label>
+                            <input type="password" class="form-control" id="userPassword" v-model="newUser.userInfo.userPassword">
+                        </div>
+                        <div class="form-group">
+                            <label for="nickName">昵称</label>
+                            <input type="text" class="form-control" id="nickName" v-model="newUser.userInfo.nickName">
+                        </div>
+                        <div class="form-group">
+                            <label for="sex">性别</label>
+                            <div>
+                                <label class="radio-inline">
+                                    <input type="radio" name="sex" value="男" v-model="newUser.userInfo.sex"> 男
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="sex" value="女" v-model="newUser.userInfo.sex"> 女
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">联系方式</label>
+                            <input type="text" class="form-control" id="phone" v-model="newUser.userInfo.phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="head">头像</label>
+                            <input type="file" class="form-control" id="head" @change="handleFileUpload">
+                            <img :src="head" alt="用户头像" v-if="newUser.userInfo.head" style="width: 100px; height: 100px; margin-top: 10px;">
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">级别</label>
+                            <select class="form-control" id="grade"  v-model="newUser.userInfo.level">
+                                <option value="15">无</option>
+                                <option value="1">小学</option>
+                                <option value="2">初中</option>
+                                <option value="3">高中</option>
+                                <option value="4">CET-4</option>
+                                <option value="5">CET-6</option>
+                                <option value="6">考研</option>
+                                <option value="7">托福</option>
+                                <option value="8">BEC</option>
+                                <option value="9">GMAT</option>
+                                <option value="10">GRE</option>
+                                <option value="11">雅思</option>
+                                <option value="12">专四</option>
+                                <option value="13">专八</option>
+                                <option value="14">SAT</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="gold">金币</label>
+                            <input type="text" class="form-control" id="gold" value="5" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="jewel">钻石</label>
+                            <input type="text" class="form-control" id="jewel" value="5" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="rank">闯关等级</label>
+                            <input type="text" class="form-control" id="rank" value="1-0-0-0" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="medalName">勋章</label>
+                            <input type="text" class="form-control" id="medalName" value="None" disabled>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" @click="addUser">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="../js/jquery-1.10.2.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.metisMenu.js"></script>
+<script src="../js/custom.js"></script>
+<script src="../js/my.js"></script>
+<script src="../js/vue2.6.11/vue.min.js"></script>
+<script src="../js/vue2.6.11/axios.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script src="../js/element/index.js"></script>
+
+
+<script>
+
+    function msg(type,msg){ //错误信息
+        Vue.prototype.$message({
+            type: type,     //success（成功）、warning（警告）、error（错误）
+            message: msg,
+            duration: 2000,
+            offset: 100,
+            center: true
+        })
+    }
+    new Vue({
+        el: '#wrapper',
+        data: {
+            serverBaseUrl: 'http://localhost:8000/', // 服务器基础 URL
+            ad:{},
+            user:{},
+            objs:[],
+            pageInfo:{
+                pageNum:1,      //初始化pageNum
+                isFirstPage: true,
+                isLastPage: false
+            },
+            pageNum: 1,
+            // preActive: true,    //有上一页为false，没有上一页为true
+            // nextActive: true    //有下一页为false，没有下一页为true
+            newUser:{
+                userInfo:{},
+                levelInfo:{},
+                medalInfo:{}
+            },
+            searchQuery: '', // 用于存储搜索内容
+            head:""
+        },
+        created: function (){
+            this.ad = JSON.parse(localStorage.getItem('ad'));
+            this.user = JSON.parse(localStorage.getItem('user'));
+            this.loadTable(1);  // 初始化加载页面数据
+        },
+        methods: {
+            loadTable(pageNum){
+                axios.get("/UserInfo/page/" + pageNum).then(res => {
+                //测试
+                console.log(res.data); // 打印返回的数据结构
+                    // console.log(res.data.data); // 打印返回的数据结构
+                    // console.log(res.data.data.list);
+                    if(res.data.code === '0'){
+                        this.objs = res.data.data.list;
+                        this.pageInfo = res.data.data;
+                        //测试
+                        console.log("this.objs:",this.objs);
+                        console.log(this.pageInfo);
+                        console.log(this.pageInfo.pageNum);
+                    }else {
+                        msg('error',res.data.msg);
+                    }
+                }).catch(error =>{
+                    msg('error','数据加载失败');
+                    console.error('Error loading data:',error);
+                });
+            },
+            // 打开模态框的方法
+            openModal: function() {
+                this.showModal = true;
+            },
+            // 关闭模态框的方法
+            closeModal: function() {
+                this.showModal = false;
+            },
+            // 提交新增
+            addUser: function() {
+                axios.post("/UserInfo/insertUser", this.newUser).then(res => {
+                    if (res.data.code === '0'){
+                        this.loadTable(); // 添加成功后重新加载表格
+                        $('#addModal').modal('hide'); // 关闭模态框
+                    }else {
+                        $('#addModal').modal('hide'); // 关闭模态框
+                        msg('error',"数据重复");
+                    }
+
+                }).catch(error => {
+                    console.error('Error adding level:', error);
+                });
+            },
+            showAddModal: function() {
+                $('#addModal').modal('show'); // 显示模态框
+            },
+            handleFileUpload(event) {
+                const file = event.target.files[0];
+                if(file){
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        this.head = e.target.result; // 将图片数据赋值给 userInfo.head
+                        this.newUser.userInfo.head = file.name;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

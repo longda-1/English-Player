@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet"/>
+    <link href="../css/basic.css" rel="stylesheet"/>
+    <link href="../css/custom.css" rel="stylesheet"/>
+    <link href="../css/my.css" rel="stylesheet"/>
+    <link href="../css/element/index.css" rel="stylesheet"/>
+
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+        .info-block {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        .info-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .admin-info {
+            display: flex;
+            align-items: center;
+        }
+        .admin-info img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+        .admin-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .admin-details .name {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-cls-top" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">后台管理系统</a>
+        </div>
+        <div class="header-right">
+            <a href="javascript:void (0)" class="btn bg-info" @click="" title="退出登录"><!--logout-->
+                <i class="fa fa-sign-out fa-2x"></i>
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="accountAdInfo.html" class="btn bg-info"  title="跳转到个人中心">
+                <i class="fa fa-user fa-2x"></i>
+            </a>
+        </div>
+        <div class="header-right" style="padding-top: 25px">
+            <!--            <div>{{ ad }}</div>-->
+            欢迎你，{{ad.nickName}}
+        </div>
+    </nav>
+    <nav class="navbar-default navbar-side" >
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main_menu">
+                <li>
+                    <a href="index.html"><i class="fa fa-dashboard"></i> 首页 </a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-yelp"></i> 信息管理 <span class="fa arrow"></span> </a>
+                    <ul class="nav nav-second-level collapse in">
+                        <li><a href="UserInfo.html"><i class="fa fa-table"></i> 用户管理 </a></li>
+                        <li><a href="level.html"><i class="fa fa-table"></i> 英语水平管理 </a></li>
+                        <li><a href="#"><i class="fa fa-yelp"></i> 单词管理 <span class="fa arrow"></span> </a>
+                            <ul class="nav nav-third-level collapse in " style="margin-left: 30px;">
+                                <li><a href="wordBook.html"><i class="fa fa-table"></i> 单词书管理 </a></li>
+                                <li><a href="WordInfo.html"><i class="fa fa-table"></i> 单词表管理 </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-yelp"></i> 阅读管理 <span class="fa arrow"></span> </a>
+                            <ul class="nav nav-second-level collapse in"style="margin-left: 30px;">
+                                <li><a href="read.html"><i class="fa fa-table"></i> 阅读文章管理 </a></li>
+                                <li><a href="readSub.html"><i class="fa fa-table"></i> 阅读上传 </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-yelp"></i> 听力管理 <span class="fa arrow"></span> </a>
+                            <ul class="nav nav-second-level collapse in"style="margin-left: 30px;">
+                                <li><a href="listen.html"><i class="fa fa-table"></i> 听力材料管理 </a></li>
+                                <li><a href="listenSub.html"><i class="fa fa-table"></i> 听力上传 </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-yelp"></i> 系统管理 <span class="fa arrow"></span> </a>
+                    <ul class="nav nav-second-level collapse in">
+                        <li><a class="active-menu" href="accountAdInfo.html"><i class="fa fa-user"></i> 个人中心 </a></li>
+                        <li><a href="updateadPassword.html"><i class="fa fa-unlock-alt"></i> 修改密码 </a></li>
+                    </ul>
+                </li>
+
+                <li><a href="login.html"><i class="fa fa-power-off"></i> 退出登录 </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--右侧-->
+    <div id = "page-wrapper">
+        <div id = "page-inner">
+            <div class="info-block admin-info">
+                <img :src="`${serverBaseUrl}${ad.head}`" alt="用户头像" style="width: 100px; height: 100px;">
+                <div class="admin-details">
+                    <div class="name">{{ ad.adName }}</div>
+                    <div>密码: {{ ad.adPassword }}</div>
+                    <div>昵称: {{ ad.nickName }}</div>
+                    <div>性别: {{ ad.sex }}</div>
+                    <div>联系方式: {{ ad.adPhone }}</div>
+                    <div>邮箱: {{ ad.email }}</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="../js/jquery-1.10.2.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.metisMenu.js"></script>
+<script src="../js/custom.js"></script>
+<script src="../js/my.js"></script>
+<script src="../js/vue2.6.11/vue.min.js"></script>
+<script src="../js/vue2.6.11/axios.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script src="../js/element/index.js"></script>
+
+
+<script>
+    new Vue({
+        el: '#wrapper',
+        data: {
+            serverBaseUrl: 'http://localhost:8000/', // 服务器基础 URL
+            ad:{
+
+            }
+
+        },
+        created: function (){
+            this.ad = JSON.parse(localStorage.getItem('ad'));
+
+        },
+        methods: {
+            handleFileUpload(event) {
+                const file = event.target.files[0];
+                if(file){
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        this.head = e.target.result; // 将图片数据赋值给 userInfo.head
+                        this.newUser.userInfo.head = file.name;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

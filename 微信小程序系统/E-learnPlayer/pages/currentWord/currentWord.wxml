@@ -1,0 +1,75 @@
+<!--pages/currentWord/currentWord.wxml-->
+<image class="background" src="../../icons/english.png"></image>
+<view class="container_index">
+  <!-- 显示单词信息 -->
+  <view class="word-info">
+    <text>{{currentWord.wordsInfo.word}}</text>
+    <text class="word-info-grade">[{{currentWord.levelInfo.grade}}]</text>
+    <text class="word-info-grade">[{{currentWord.wordBooksInfo.bookName}}]</text>
+  </view>
+  <!-- 黄色分割线 -->
+  <view class="divider"></view>
+  <view class="word-info-content">
+    <!-- 英 -->
+    <image class="pronounce-icon" src="../../icons/sound.png" bindtap="playPronunciation" data-word="{{currentWord.wordsInfo.ukPronounce}}" data-type="1"></image>
+    <text >英/'{{currentWord.wordsInfo.ukPhonetic}}'/</text>
+    <!-- 美 -->
+    <image class="pronounce-icon" src="../../icons/sound.png" bindtap="playPronunciation" data-word="{{currentWord.wordsInfo.usPronounce}}" data-type="2"></image>
+    <text>美/'{{currentWord.wordsInfo.usPhonetic}}'/ \n</text>
+    
+    <view wx:for="{{currentWord.wordSynonymsInfoList}}" wx:key="index" wx:for-item="synonym" wx:for-index="idx">
+        <!-- 在第一个元素或者当前元素的 partOfSpeech 与前一个元素不同时，展示 partOfSpeech -->
+        <block wx:if="{{idx === 0 || synonym.partOfSpeech !== currentWord.wordSynonymsInfoList[idx - 1].partOfSpeech}}">
+          <view style="color:black;">{{synonym.partOfSpeech}}.  {{synonym.translation}}</view>
+        </block>        
+    </view>
+    <view class="divider-line"></view> 
+  </view>
+  <view class="word">
+    <view class="word-title">
+      <text style="color: rgb(30,144,255); font-weight: bold;">例句：</text>
+    </view>
+    <view class="word-content">
+      <view wx:for="{{exampleSentences}}" wx:key="sentenceId">
+            <!-- 遍历对应的例句信息数组 -->
+            <view>{{item[0].englishContent}}</view>
+            <view>{{item[0].chineseContent}}</view>
+          </view>
+    </view>
+    <view class="divider-line"></view> 
+  </view>
+  <view class="word">
+    <view class="word-title">
+      <text style="color: rgb(30,144,255); font-weight: bold;">短语：</text>
+    </view>
+    <view class="word-content">
+      <view wx:for="{{currentWord.wordPhrasesInfoList}}" wx:key="index">
+        <view>{{item.phraseContent}}：{{item.phraseTranslation}}</view>
+      </view>
+    </view>
+    <view class="divider-line"></view> 
+  </view>
+  <view class="word">
+    <view class="word-title">
+      <text style="color: rgb(30,144,255); font-weight: bold;">同义词：</text>
+    </view>
+    <view class="word-content">
+      <view wx:for="{{currentWord.wordSynonymsInfoList}}" wx:key="index">
+        <view>{{item.synonym}}：{{item.partOfSpeech}}.{{item.translation}}</view>
+      </view>
+    </view>
+    <view class="divider-line">
+    </view> 
+  </view><view class="word">
+    <view class="word-title">
+      <text style="color: rgb(30,144,255); font-weight: bold;">同根词：</text>
+    </view>
+    <view class="word-content">
+      <view wx:for="{{currentWord.wordsRootInfoList}}" wx:key="index">
+        <view>{{item.rootWord}}：{{item.partOfSpeech}}.{{item.rootTranslation}}</view>
+      </view>
+    </view>
+    <view class="divider-line">
+  </view> 
+</view> 
+</view>

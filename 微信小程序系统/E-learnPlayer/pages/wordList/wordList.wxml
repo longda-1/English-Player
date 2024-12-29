@@ -1,0 +1,57 @@
+<!--pages/wordList/wordList.wxml-->
+<image class="background" src="../../icons/english.png"></image>
+<view class="container_index">
+<view wx:if="{{!showCountdown}}" class="container_index">
+   <!-- 用户信息 -->
+   <view class="user-info" bindtap="navigateToUser">
+    <image class="avatar" src="{{userData.userInfo.head}}" mode="aspectFill"></image>
+    <view class="user-details">
+      <text class="nickname" style="font-size: 22px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)" bindtap="navigateToUser">{{userData.userInfo.nickName}}</text>
+      <text class="level">\n水平：{{userData.levelInfo.grade}}</text>
+      <text class="rank">\nLV : {{userData.userInfo.rank}}</text>
+    </view>
+    <view class="currency">
+      <text class="gold">💰: {{userData.userInfo.gold}}</text>
+      <text class="jewel">💎: {{userData.userInfo.jewel}}</text>
+    </view>
+  </view>
+  <!-- 黄色分割线 -->
+  <view class="divider"></view>
+  <!-- 单词列表 -->
+  <scroll-view class="word-scroll" scroll-y="true">
+    <view wx:for="{{wordList}}" wx:key="index" class="word-item" bindtap="showWordDetail" data-index="{{index}}">
+      <!-- 单词信息显示 -->
+      <view class="word-item-content">
+        <text class="word" style="font-weight: bold; font-size: 18px;">{{item.wordsInfo.word}}</text>
+        <!-- 英音发音图片 -->
+        <text>\n</text>
+        <image class="pronounce-icon" src="../../icons/sound.png" bindtap="playPronunciation" data-word="{{item.wordsInfo.ukPronounce}}" data-type="1"></image>
+        
+        <text class="word" style="color:gray;">  英/'{{item.wordsInfo.ukPhonetic}}'/</text>
+        <!-- 美音发音图片 -->
+        <image class="pronounce-icon" src="../../icons/sound.png" bindtap="playPronunciation" data-word="{{item.wordsInfo.usPronounce}}" data-type="2"></image>
+        <text class="word" style="color: gray;">  美/'{{item.wordsInfo.usPhonetic}}'/ \n</text>
+        <!-- <text class="word">\n{{item.wordSynonymsInfoList.partOfSpeech}}.</text> -->
+        <!-- 循环展示去重后的 partOfSpeech 和 translation -->
+      <view wx:for="{{item.wordSynonymsInfoList}}" wx:key="index" wx:for-item="synonym" wx:for-index="idx">
+        <!-- 在第一个元素或者当前元素的 partOfSpeech 与前一个元素不同时，展示 partOfSpeech -->
+        <block wx:if="{{idx === 0 || synonym.partOfSpeech !== item.wordSynonymsInfoList[idx - 1].partOfSpeech}}">
+          <view>{{synonym.partOfSpeech}}.  {{synonym.translation}}</view>
+        </block>        
+      </view>
+        <!-- <text class="translation">{{item.translation}}</text> -->
+      </view>
+      <view class="divider-line"></view>
+    </view>
+  </scroll-view>
+
+  <!-- Ready Go 按钮 -->
+  <button class="ready-go-btn" bindtap="startWordChallenge">Ready Go！</button>
+</view>
+  <!-- 倒计时组件 -->
+  <block wx:if="{{showCountdown}}">
+
+    <countdown bind:countdownEnd="onCountdownEnd" />
+  </block>
+
+</view>  

@@ -1,0 +1,62 @@
+/* user.wxss */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e9e93c;
+  opacity: 0.4; /* 设置透明度为40% */
+  z-index: -1; /* 确保背景图片在页面下方 */
+}
+.user-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+}
+
+.avatar {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  margin-bottom: 20rpx;
+  margin-top: 50rpx;
+}
+
+.user-details {
+  text-align: center;
+  margin-bottom: 10rpx;
+  font-size: 20px;
+}
+.rank,
+.gold,
+.jewel {
+  margin-bottom: 10rpx;
+}
+.info-list {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 20rpx;
+  border-bottom: 1px solid rgb(122, 120, 120);
+  
+}
+
+.logout-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}

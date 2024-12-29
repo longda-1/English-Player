@@ -1,0 +1,26 @@
+<!--pages/wordChoice/wordChoice.wxml-->
+<image class="background" src="../../icons/english.png"></image>
+<view class="container_index">
+   <!-- 用户信息 -->
+   <view class="user-info" bindtap="navigateToUser">
+    <image class="avatar" src="{{userData.userInfo.head}}" mode="aspectFill"></image>
+    <view class="user-details">
+      <text class="nickname" style="font-size: 22px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)" bindtap="navigateToUser">{{userData.userInfo.nickName}}</text>
+      <text class="level">\n水平：{{userData.levelInfo.grade}}</text>
+      <text class="rank">\nLV : {{userData.userInfo.rank}}</text>
+    </view>
+    <view class="currency">
+      <text class="gold">💰: {{userData.userInfo.gold}}</text>
+      <text class="jewel">💎: {{userData.userInfo.jewel}}</text>
+    </view>
+  </view>
+  <!-- 黄色分割线 -->
+  <view class="divider"></view>
+
+    <!-- 选择关卡 -->
+  <scroll-view class="level-scroll" scroll-y="true">
+    <view wx:for="{{ranks}}" wx:key="index" class="level-item" data-level="{{item}}" data-clickable="{{item.clickable}}" bindtap="selectRank" style="background-color:{{item.bgColor}}">
+      <view class="level-number">{{item.level}}</view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<!--start开始（落地页）-->
+<view class="container">
+  <text class="announcement">📣公告：温故而知新可以帮助你更快掌握不会的单词哦~</text>
+  <view>
+    <image src="../../icons/english.png" mode="aspectFit"></image>
+  </view>
+  <view class="button-group">
+    <button class="start-btn" bindtap="startJourney">开始旅途</button>
+    <button class="start-btn" bindtap="toMarket">兑换集市</button>
+    <button class="start-btn" bindtap="showInstructions">使用说明</button>
+  </view>
+  
+
+</view>

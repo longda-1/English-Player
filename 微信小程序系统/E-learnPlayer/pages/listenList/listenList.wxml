@@ -1,0 +1,38 @@
+<!--pages/listenList/listenList.wxml-->
+<image class="background" src="../../icons/english.png"></image>
+<view class="container_index">
+ <!-- 用户答题进度条 -->
+ <view class="progress-bar">
+    <text>{{correctCount}}/{{totalCount}}</text>
+    <!-- 这里可以根据剩余时间显示其他信息 -->
+  </view>
+
+  <!-- 文章模块 -->
+  <view class="passage">
+    <text class="passage-title">{{listeningData.audioInfo.audioTitle}}</text>
+    <text class="passage-title" style="font-size: 20px;">\n{{listeningData.levelInfo.grade}}\n\n</text>
+    <!-- <text class="passage-content">\n{{listeningData.audioInfo.audioFile}}</text> -->
+    <image class="avatar" src="../../icons/sound.png" bindtap="playPronunciation"></image>
+  </view>
+
+<!-- 题目模块 -->
+<view class="questions">
+  <block wx:for="{{listeningData.questions}}" wx:key="index">
+    <!-- 题目内容 -->
+    <view class="question-item">
+      <text>\n{{item.listeningQuestionId}}. {{item.passageText}}</text>
+    </view>
+   <!-- 选项按钮 -->
+   <view class="choices">
+        <block wx:for="{{listeningData.choices}}" wx:key="index2" wx:for-item="choice">
+          <!-- 判断选项是否属于当前题目的范围 -->
+          <block wx:if="{{choice.listeningQuestionId === item.listeningQuestionId}}">
+            <button class="choice-btn {{selectedAnswers[item.listeningQuestionId] === choice.choiceIndex ? 'Selected' : ''}}" bindtap="selectChoice" data-index="{{choice.choiceIndex}}" data-question-id="{{choice.listeningQuestionId}}">{{choice.choiceText}}</button>
+          </block>
+        </block>
+      </view>
+    </block>
+  </view>
+  <!-- 提交按钮 -->
+  <button class="submit-btn" bindtap="submitAnswers">提交</button>
+</view>

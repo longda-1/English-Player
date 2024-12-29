@@ -1,0 +1,38 @@
+<!-- index.wxml -->
+<!-- 首页 -->
+<image class="background" src="../../icons/english.png"></image>
+<view class="container_index">
+  <!-- 用户信息 -->
+  <view class="user-info">
+    <image class="avatar" src="{{userData.userInfo.head}}" mode="aspectFill" bindtap="navigateToUser"></image>
+    <view class="user-details">
+      <text class="nickname" style="font-size: 22px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)" bindtap="navigateToUser">{{userData.userInfo.nickName}}</text>
+      <!-- <text class="level" bindtap="showPicker">\n水平：{{userData.levelInfo.grade}}</text> -->
+      <view class="section">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{levelInfo}}" range-key="grade">
+          <view class="picker">
+            水平:{{levelInfo[index].grade}}
+          </view>
+        </picker>
+      </view>
+      <text class="rank">\nLV : {{userData.userInfo.rank}}</text>
+    </view>
+    <view class="currency">
+      <text class="gold">💰: {{userData.userInfo.gold}}</text>
+      <text class="jewel">💎: {{userData.userInfo.jewel}}</text>
+    </view>
+  </view>
+  <!-- 黄色分割线 -->
+  <view class="divider"></view>
+
+  <!-- 导航按钮 -->
+  <view class="button-group">
+    <button class="nav-button" bindtap="navigateToWord" disabled="{{navButtonStates[0]}}">单词对对碰</button>
+    <button class="nav-button" bindtap="navigateToWordChoice" disabled="{{navButtonStates[1]}}">选择知我意</button>
+    <button class="nav-button" bindtap="navigateToReading" disabled="{{navButtonStates[2]}}">阅读大冒险</button>
+    <button class="nav-button" bindtap="navigateToListening" disabled="{{navButtonStates[3]}}">听力大冒险</button>
+  </view>
+
+</view>
+
+

@@ -1,0 +1,76 @@
+/* pages/wordChallenge/wordChallenge.wxss */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e9e93c;
+  opacity: 0.4; /* 设置透明度为 50% */
+  z-index: -1; /* 确保背景图片在页面下方 */
+}
+.container_index {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  padding: 30px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-around ; /* 控制按钮之间的间距 */
+  margin-top: 0rpx;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1; /* 让按钮占据相同的宽度 */
+}
+/* 调整左侧按钮宽度 */
+.word-btn{
+  width: auto;
+  height: auto;
+  margin: 5px 5px 10px 5px;
+  background-color: yellow;
+  border: 3px solid orange;
+  border-radius: 50rpx;
+  font-size: 14px; /* 修改按钮文字大小 */
+}
+
+/* 调整右侧按钮宽度 */
+.definition-btn {
+  width: auto;
+  height: auto;
+  margin: 5px 5px 10px 5px;
+  background-color: yellow;
+  border: 1px solid orange;
+  border-radius: 50rpx;
+}
+/* 选中按钮 */
+.selected {
+  background-color: orange; /* 选中按钮改变成橙色 */
+}
+/* 匹配错误-按钮 */
+.selected_error {
+  background-color: red; /* 选中按钮改变成橙色 */
+}
+/* 匹配正确-按钮 */
+.selected_right {
+  background-color: orange; /* 选中按钮改变成橙色 */
+}
+/* 右上角倒计时 */
+.countdown {
+  position: fixed;
+  top: 20rpx;
+  right: 40rpx;
+  font-size: 40rpx;
+}
+

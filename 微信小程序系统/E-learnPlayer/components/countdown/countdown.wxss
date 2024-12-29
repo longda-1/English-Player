@@ -1,0 +1,24 @@
+/* components/countdown/countdown.wxss */
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 占据整个页面高度 */
+}
+
+.countdown-number {
+  font-size: 48px; /* 字体大小 */
+  text-align: center; /* 居中显示 */
+}
+
+
+@keyframes fade {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}

@@ -1,0 +1,6 @@
+<!--components/countdown/countdown.wxml-->
+<view class="countdown-wrapper">
+  <view class="countdown-number" animation="{{animationData}}">
+    {{countdownText}}
+  </view>
+</view>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet"/>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        label {
+            width: 100px;
+            text-align: right;
+            padding-right: 10px;
+        }
+        input[type="text"], input[type="password"], input[type="email"], input[type="date"] {
+            flex: 1;
+        }
+        .avatar-container img {
+            margin-left: 10px;
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2); /* 半透明的白色覆盖层 */
+            z-index: -1; /* 确保覆盖层在背景图片上，但在其他内容后面 */
+        }
+    </style>
+</head>
+<body style="background-image: url('../../end/img/english.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #E2E2E2;">
+<div id="app" class="container">
+    <div class="row text-center" style="padding: 100px">
+        <div class="col-md-12">
+            <h2>用户注册</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+            <div class="panel-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="adName">用户名：</label>
+                        <input type="text" id="adName" class="form-control" v-model="ad.adName" placeholder="请输入用户名"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="adPassword">密码：</label>
+                        <input type="password" id="adPassword" class="form-control" v-model="ad.adPassword" placeholder="请输入密码"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">确认密码：</label>
+                        <input type="password" id="confirmPassword" class="form-control" v-model="ad.confirmPassword" placeholder="请再次输入密码"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="avatar">头像：</label>
+                        <input type="file" id="avatar" @change="previewAvatar" accept="image/*">
+                        <div class="avatar-container" v-if="ad.head">
+                            <img :src="head" alt="头像预览">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="fullName">昵称：</label>
+                        <input type="text" id="fullName" class="form-control" v-model="ad.nickName" placeholder="请输入昵称"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">邮箱：</label>
+                        <input type="email" id="email" class="form-control" v-model="ad.email" placeholder="请输入邮箱"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">手机号：</label>
+                        <input type="text" id="phone" class="form-control" v-model="ad.adPhone" placeholder="请输入手机号"/>
+                    </div>
+                    <div class="form-group">
+                        <label>性别：</label>
+                        <label class="radio-inline">
+                            <input type="radio" v-model="ad.sex" value="男"> 男
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" v-model="ad.sex" value="女"> 女
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="passcode">通行码：</label>
+                        <input type="password" id="passcode" class="form-control" v-model="passcode" placeholder="请输入通行码"/>
+                    </div>
+                    <div style="text-align: center">
+                        <a href="javascript:void(0)" @click="register" class="btn btn-primary">注册</a>
+                    </div>
+                    <hr/>
+                    <div style="text-align: center">
+                        <a href="login.html">已有账号？点击登录</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/vue2.6.11/vue.min.js"></script>
+<script src="../js/vue2.6.11/axios.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            ad: {
+                adName: "",
+                adPassword: "",
+                adPhone:"",
+                nickName:"",
+                email:"",
+                head:"",
+                sex:""
+            },
+            head:"",
+            passcode:"" // 添加通行码输入框的数据绑定
+        },
+        created: function (){
+
+        },
+        methods: {
+            register() {
+                const correctPasscode = "YYCCC"; // 正确的通行码
+
+                if (this.passcode !== correctPasscode) {
+                    alert("通行码错误");
+                    return;
+                }
+                if (!this.ad.adName) {
+                    alert("请输入用户名");
+                    return;
+                }
+                if (!this.ad.adPassword) {
+                    alert("请输入密码");
+                    return;
+                }
+                if (this.ad.adPassword !== this.ad.confirmPassword) {
+                    alert("密码和确认密码不一致");
+                    return;
+                }
+                if (!this.ad.email) {
+                    alert("请输入邮箱");
+                    return;
+                }
+                if (!this.ad.nickName) {
+                    this.ad.nickName = "Admin" //默认Admin
+                    return;
+                }
+                if (!this.ad.adPhone) {
+                    alert("请输入手机号");
+                    return;
+                }
+                if (!this.ad.sex) {
+                    this.ad.sex = null;
+                    return;
+                }
+                if (!this.ad.head) {
+                    this.ad.head = "my.png"; // 设置默认头像
+                }
+                axios.post('/register', this.ad, {
+                    headers: {
+                        'Content-Type': 'application/json; charset=UTF-8'
+                    }
+                }).then(res => {
+                    if (res.data.code === '0') {
+                        location.href = '/end/page/login.html';
+                    } else {
+                        alert(res.data.msg);
+                    }
+                }).catch(error => {
+                    console.error("注册失败:", error);
+                    alert("注册失败，请稍后再试");
+                });
+            },
+            previewAvatar(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        this.head = e.target.result; // 将头像URL存储在ad.head中
+                        this.ad.head = file.name;  // 将头像URL存储在ad.head中
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
